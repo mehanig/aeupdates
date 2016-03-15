@@ -1,0 +1,14 @@
+.idea
+db.sqlite3
+frontend_deployment.md
+__pycache__
+
+/node_modules
+npm-debug.log
+/tmp
+/common-tmp
+*.tgz
+/docs/build
+.node_modules-tmp
+.bower_components-tmp
+/coverage
