@@ -4,12 +4,14 @@ frontend_deployment.md
 aeupdates/settings.py
 __pycache__
 
-/node_modules
-npm-debug.log
-/tmp
-/common-tmp
-*.tgz
-/docs/build
-.node_modules-tmp
-.bower_components-tmp
-/coverage
+apps/frontend/node_modules
+apps/frontend/npm-debug.log
+apps/frontend/tmp
+apps/frontend/common-tmp
+apps/frontend/*.tgz
+apps/frontend/docs/build
+apps/frontend/.node_modules-tmp
+apps/frontend/.bower_components-tmp
+apps/frontend/coverage
+apps/frontend/bower_components
+

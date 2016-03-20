@@ -1,0 +1,1 @@
+{"version":3,"sources":["test-helper.js"],"names":[],"mappings":"AAAA,OAAO,QAAQ,MAAM,oBAAoB,CAAC;AAC1C,SACE,WAAW,QACN,aAAa,CAAC;;AAErB,WAAW,CAAC,QAAQ,CAAC,CAAC","file":"test-helper-compiled.js","sourcesContent":["import resolver from './helpers/resolver';\nimport {\n  setResolver\n} from 'ember-qunit';\n\nsetResolver(resolver);\n"]}
