@@ -15,3 +15,6 @@ apps/frontend/.bower_components-tmp
 apps/frontend/coverage
 apps/frontend/bower_components
 
+#static folder
+aeupdates/static/
+
