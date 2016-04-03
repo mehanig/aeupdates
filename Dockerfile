@@ -27,7 +27,8 @@ RUN git clone https://github.com/mehanig/aeupdates
 # && pip3 install -r Video_Compressor_x264ffmpeg/requirements.txt
 
 ADD docker_run.sh /run.sh
+RUN chmod +x /run.sh
 
-EXPOSE 80 8080 8084 443
+EXPOSE 8080 8084 443
 
 CMD /run.sh
