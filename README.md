@@ -12,4 +12,4 @@ aeupdates.com
     ...
 
 
-Also:
+Also: gpg signing
