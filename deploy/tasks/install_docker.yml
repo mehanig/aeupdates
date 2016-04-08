@@ -1,0 +1,14 @@
+- name: install the latest version of Epel Release
+  yum:
+    name: epel-release
+    state: latest
+
+- name: install the latest version of Docker
+  yum:
+    name: docker
+    state: latest
+
+#run docker service
+- service:
+    name: docker
+    state: started
