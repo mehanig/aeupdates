@@ -1,0 +1,7 @@
+- name: Creates aeupdates folder for nginx
+  file: path=/aeupdates/nginx_folder state=directory mode=0755
+
+-name: Copy configs
+  - copy: src=main_nginx_config/aeupdates_nginx.conf dest=/aeupdates/aeupdates_nginx.conf  owner=root group=root mode=0644
+
+-name: Restart Nginx with new config
