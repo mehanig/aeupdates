@@ -2,5 +2,6 @@
 
 - hosts: all
   tasks:
-    - include: 'tasks/install_nginx.yml'
-    - include: 'tasks/install_docker.yml'
+#    - include: 'tasks/install_nginx.yml'
+#    - include: 'tasks/install_docker.yml'
+    - include: 'tasks/configure_nginx.yml'

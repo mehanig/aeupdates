@@ -1,7 +1,17 @@
-- name: Creates aeupdates folder for nginx
-  file: path=/aeupdates/nginx_folder state=directory mode=0755
+- name: Creates aeupdates folder for nginx and ssl
+  file: path=/aeupdates/Main_nginx_folder state=directory mode=0755
+  file: path=/etc/letsencrypt/live/aeupdates.com state=directory mode=0755
 
--name: Copy configs
-  - copy: src=main_nginx_config/aeupdates_nginx.conf dest=/aeupdates/aeupdates_nginx.conf  owner=root group=root mode=0644
+#- name: Copy configs and certificates
+- copy: src=main_nginx_config/aeupdates_nginx.conf dest=/aeupdates/aeupdates_nginx.conf  owner=root group=root mode=0644
+- copy: src=main_nginx_config/mime.types dest=/aeupdates/mime.types  owner=root group=root mode=0644
+- copy: src=ssl/fullchain.pem dest=/etc/letsencrypt/live/aeupdates.com/fullchain.pem  owner=root group=root mode=0644
+- copy: src=ssl/privkey.pem dest=/etc/letsencrypt/live/aeupdates.com/privkey.pem  owner=root group=root mode=0644
 
--name: Restart Nginx with new config
+- name: Stop Nginx
+  command: nginx -s stop
+  ignore_errors: yes
+
+# Run Nginx with config file.
+- name: Run Nginx with config file.
+  command: /usr/sbin/nginx -c /aeupdates/aeupdates_nginx.conf

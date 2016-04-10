@@ -12,4 +12,5 @@ aeupdates.com
     ...
 
 
-Also: gpg signing
+<h4>Deployment</h4>
+ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv 
