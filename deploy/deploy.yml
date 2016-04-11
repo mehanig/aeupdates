@@ -5,4 +5,5 @@
 #    - include: 'tasks/install_nginx.yml'
 #    - include: 'tasks/install_docker.yml'
 #    - include: 'tasks/configure_nginx.yml'
-    - include: 'tasks/run_docker_django_container.yml'
+    - include: 'tasks/first_deployment/selinux_and_docker_overlay.yml'
+#    - include: 'tasks/run_docker_django_container.yml'

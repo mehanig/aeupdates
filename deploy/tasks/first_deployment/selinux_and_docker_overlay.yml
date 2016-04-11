@@ -1,0 +1,16 @@
+# workaround from http://www.projectatomic.io/blog/2015/06/notes-on-fedora-centos-and-docker-storage-drivers/
+
+- name: Stop docker
+  command: systemctl stop docker
+
+- name: Clean all containers
+  command: rm -rf /var/lib/docker
+
+# Change configs OPTIONS='--selinux-enabled' to OPTIONS='--selinux-enabled=false'
+- lineinfile: dest=/etc/sysconfig/docker regexp=^OPTIONS='--selinux-enabled' line=OPTIONS=\'--selinux-enabled=false\' state=present
+
+# Change Docker Storage configs for Overlay
+- lineinfile: dest=/etc/sysconfig/docker-storage regexp=^DOCKER_STORAGE_OPTIONS line='DOCKER_STORAGE_OPTIONS= -s overlay' state=present
+
+- name: Start docker
+  command: systemctl start docker
