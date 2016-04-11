@@ -1,0 +1,13 @@
+- name: Copy docker config file
+  copy: src=django_docker/Dockerfile dest=/aeupdates/Dockerfile  owner=root group=root mode=0644
+
+- name: Copy docker runer
+  copy: src=django_docker/docker_run.sh dest=/aeupdates/docker_run.sh
+
+- name: Step for invalidating docker cache
+  shell: echo `date` > /aeupdates/build_time
+
+- name: Rebuild Container
+  command: docker build -t aeupdates /aeupdates
+
+#- copy: src=django_docker/build_date dest=/aeupdates/build_date

@@ -23,7 +23,7 @@ RUN curl -o nginx.tar.gz http://nginx.org/download/nginx-1.9.1.tar.gz \
 
 # Invalidate cache and clone video compressor repo and install python requirements
 RUN echo `date` > build_time
-ADD  build_time/.build_time
+ADD  build_time /.build_time
 RUN git clone https://github.com/mehanig/aeupdates
 # && pip3 install -r Video_Compressor_x264ffmpeg/requirements.txt
 
