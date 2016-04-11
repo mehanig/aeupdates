@@ -5,8 +5,18 @@ RUN yum install -y http://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius
  && yum install -y http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-1.el7.nux.noarch.rpm \
  && yum install -y epel-release \
  && yum clean all
-RUN yum install -y python34u git tar gcc pcre-devel zlib-devel openssl openssl-devel \
+
+RUN yum install -y git tar gcc pcre-devel zlib-devel openssl openssl-devel \
  && yum install -y ffmpeg \
+ && yum clean all
+
+RUN yum-builddep -y python \
+ && curl -O https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tgz \
+ && tar xf Python-3.5.1.tgz \
+ && cd Python-3.5.1 \
+ && ./configure \
+ && make \
+ && make install \
  && yum clean all
 
 # Compile and install nginx with upload module
@@ -21,11 +31,14 @@ RUN curl -o nginx.tar.gz http://nginx.org/download/nginx-1.9.1.tar.gz \
  && popd \
  && rm -rf nginx-1.9.1 nginx.tar.gz
 
+# create pyvenv with python35 and activate it
+RUN pyvenv aeupdates_venv && source /aeupdates_venv/bin/activate
+
 # Invalidate cache and clone video compressor repo and install python requirements
 RUN echo `date` > build_time
 ADD  build_time /.build_time
-RUN git clone https://github.com/mehanig/aeupdates
-# && pip3 install -r Video_Compressor_x264ffmpeg/requirements.txt
+RUN git clone https://github.com/mehanig/aeupdates \
+  && pip3 install -r aeupdates/requirements.txt
 
 ADD docker_run.sh /run.sh
 RUN chmod +x /run.sh

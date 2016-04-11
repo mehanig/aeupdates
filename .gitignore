@@ -1,7 +1,7 @@
 .idea
 db.sqlite3
 frontend_deployment.md
-aeupdates/settings.py
+aeupdates/config.py
 __pycache__
 
 apps/frontend/node_modules
