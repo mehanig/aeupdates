@@ -11,3 +11,5 @@
   command: docker build -t aeupdates /aeupdates
 
 #- copy: src=django_docker/build_date dest=/aeupdates/build_date
+- name: Start container
+  command: docker run -d -p 8080:8080 -p 8084:8084 -t aeupdates
