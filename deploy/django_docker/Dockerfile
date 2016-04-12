@@ -34,11 +34,29 @@ RUN curl -o nginx.tar.gz http://nginx.org/download/nginx-1.9.1.tar.gz \
 # create pyvenv with python35 and activate it
 RUN pyvenv aeupdates_venv && source /aeupdates_venv/bin/activate
 
+# Install Node and Ember.js
+RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - \
+ && yum -y install nodejs \
+ && yum clean all
+
+RUN npm install -g ember-cli@2.4
+RUN npm install -g bower
+
 # Invalidate cache and clone video compressor repo and install python requirements
 RUN echo `date` > build_time
 ADD  build_time /.build_time
-RUN git clone https://github.com/mehanig/aeupdates \
-  && pip3 install -r aeupdates/requirements.txt
+RUN source /aeupdates_venv/bin/activate \
+  && git clone https://github.com/mehanig/aeupdates \
+  && pip install -r aeupdates/requirements.txt
+
+# Build Ember project
+RUN cd /aeupdates/apps/frontend \
+ && npm install \
+ && bower install --allow-root \
+ && ember build \
+ && ember install ember-django-adapter \
+ && ember generate drf-serializer user \
+ && ember generate drf-adapter application
 
 ADD docker_run.sh /run.sh
 RUN chmod +x /run.sh

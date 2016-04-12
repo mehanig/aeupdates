@@ -21,6 +21,10 @@ if settings.DEBUG:
       url(r'^static/(?P<path>.*)$', serve),
     ]
 
+# TODO: (MY) /aeupdates/aeupdates/urls.py:26: RemovedInDjango110Warning: Support for string view arguments to url()
+# is deprecated and will be removed in Django 1.10 (got serve). Pass the callable instead.
+# url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'ember/index.html'}),
+
 urlpatterns += patterns(
     'django.contrib.staticfiles.views',
     url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'ember/index.html'}),
