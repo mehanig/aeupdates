@@ -58,6 +58,9 @@ RUN cd /aeupdates/apps/frontend \
  && ember generate drf-serializer user \
  && ember generate drf-adapter application
 
+# Create filder for nginx folder
+RUN mkdir /aeupdates/docker_nginx_folder
+
 ADD docker_run.sh /run.sh
 RUN chmod +x /run.sh
 
