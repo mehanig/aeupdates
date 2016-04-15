@@ -1,0 +1,7 @@
+- name: Install Pip
+  yum:
+    name: python-pip
+    state: latest
+
+- name: Install docker-py as a workaround for Ansible issue
+  pip: name=docker-py version=1.2.3

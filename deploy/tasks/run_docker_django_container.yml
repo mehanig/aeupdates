@@ -1,3 +1,9 @@
+- name: kill all previously existed containers
+  docker:
+    name: aeupdates
+    image: aeupdates
+    state: killed
+
 - name: Copy docker config file
   copy: src=django_docker/Dockerfile dest=/aeupdates/Dockerfile  owner=root group=root mode=0644
 
