@@ -49,14 +49,17 @@ RUN source /aeupdates_venv/bin/activate \
   && git clone https://github.com/mehanig/aeupdates \
   && pip install -r aeupdates/requirements.txt
 
+# Create dir for ember project
+RUN mkdir -p /aeupdates/aeupdates/static/ember
+
 # Build Ember project
 RUN cd /aeupdates/apps/frontend \
  && npm install \
  && bower install --allow-root \
- && ember build \
  && ember install ember-django-adapter \
  && ember generate drf-serializer user \
- && ember generate drf-adapter application
+ && ember generate drf-adapter application \
+ && ember build -o /aeupdates/aeupdates/static/ember \
 
 # Create filder for nginx folder
 RUN mkdir /aeupdates/docker_nginx_folder
