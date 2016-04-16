@@ -1,4 +1,4 @@
 - hosts: all
   tasks:
-    - include: 'tasks/install_extras.yml'
-    - include: 'tasks/run_docker_django_container.yml'
+#    - include: 'tasks/install_extras.yml'
+    - include: 'tasks/run_docker_psql_container.yml'

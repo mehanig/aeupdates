@@ -1,0 +1,16 @@
+- name: kill all previously existed PSQL containers
+  docker:
+    docker_api_version: 1.21
+    name: postgresql-aeupdates
+    image: postgres:9.4
+    state: killed
+
+# Where is ansible modure for removing images?
+- command: docker rm postgresql-aeupdates
+  ignore_errors: yes
+
+- name: Pull container
+  command: docker pull postgres:9.4
+
+- name: Rebuild Container
+  command: docker run --name postgresql-aeupdates -v /postgresql/data:/postgresql/data -p 172.17.0.1:5432:5432 -e PGDATA=/postgresql/data -e POSTGRES_PASSWORD=mysecretpassword -d postgres:9.4
