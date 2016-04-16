@@ -7,17 +7,11 @@ RUN yum install -y http://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius
  && yum clean all
 
 RUN yum install -y git tar gcc pcre-devel zlib-devel openssl openssl-devel \
+ && yum install -y python34 \
+ && yum install -y python34-devel \
  && yum install -y ffmpeg \
  && yum clean all
 
-RUN yum-builddep -y python \
- && curl -O https://www.python.org/ftp/python/3.5.1/Python-3.5.1.tgz \
- && tar xf Python-3.5.1.tgz \
- && cd Python-3.5.1 \
- && ./configure \
- && make \
- && make install \
- && yum clean all
 
 # Compile and install nginx with upload module
 RUN curl -o nginx.tar.gz http://nginx.org/download/nginx-1.9.1.tar.gz \
