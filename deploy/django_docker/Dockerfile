@@ -6,7 +6,7 @@ RUN yum install -y http://dl.iuscommunity.org/pub/ius/stable/CentOS/7/x86_64/ius
  && yum install -y epel-release \
  && yum clean all
 
-RUN yum install -y git tar gcc pcre-devel zlib-devel openssl openssl-devel \
+RUN yum install -y git tar gcc pcre-devel zlib-devel openssl openssl-devel wget \
  && yum install -y python34 \
  && yum install -y python34-devel \
  && yum install -y ffmpeg \
@@ -25,8 +25,13 @@ RUN curl -o nginx.tar.gz http://nginx.org/download/nginx-1.9.1.tar.gz \
  && popd \
  && rm -rf nginx-1.9.1 nginx.tar.gz
 
-# create pyvenv with python35 and activate it
-RUN pyvenv aeupdates_venv && source /aeupdates_venv/bin/activate
+# create pyvenv with python34 and activate it
+# one can't just create pyvenv because of bugs with pip
+# workaround - http://www.ctlai.com/?p=124
+RUN pyvenv-3.4 aeupdates_venv --without-pip \
+  && wget https://bootstrap.pypa.io/get-pip.py \
+  && source /aeupdates_venv/bin/activate \
+  && python get-pip.py
 
 # Install Node and Ember.js
 RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - \

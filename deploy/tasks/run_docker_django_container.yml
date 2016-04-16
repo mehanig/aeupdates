@@ -1,5 +1,6 @@
 - name: kill all previously existed containers
   docker:
+    docker_api_version: 1.21
     name: aeupdates
     image: aeupdates
     state: killed

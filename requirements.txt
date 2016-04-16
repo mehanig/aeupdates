@@ -2,4 +2,4 @@ django==1.9.2
 djangorestframework==3.3.2
 django-unslashed>=0.3.0
 uwsgi==2.0.12
-psycopg2==2.6.1
+psycopg2
