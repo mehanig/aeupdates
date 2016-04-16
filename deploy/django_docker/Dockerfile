@@ -33,6 +33,9 @@ RUN pyvenv-3.4 aeupdates_venv --without-pip \
   && source /aeupdates_venv/bin/activate \
   && python get-pip.py
 
+# for psycopg2
+RUN yum -y install postgresql-devel
+
 # Install Node and Ember.js
 RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - \
  && yum -y install nodejs \
@@ -66,6 +69,6 @@ RUN mkdir /aeupdates/docker_nginx_folder
 ADD docker_run.sh /run.sh
 RUN chmod +x /run.sh
 
-EXPOSE 8080 8084 443
+EXPOSE 8080 8084 443 5432
 
 CMD /run.sh
