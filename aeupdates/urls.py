@@ -4,7 +4,7 @@ from rest_framework import routers
 from apps.subscriptions import views
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
-from .views import MainPageView
+from .views import MainPageView, tokenizer_test
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
@@ -34,4 +34,5 @@ urlpatterns += patterns(
     url(r'^users/(?P<path>.*)$', MainPageView.as_view()),
     url(r'^login/(?P<path>.*)$', MainPageView.as_view()),
     url(r'^manage/(?P<path>.*)$', MainPageView.as_view()),
+    url(r'^token/$', tokenizer_test)
 )

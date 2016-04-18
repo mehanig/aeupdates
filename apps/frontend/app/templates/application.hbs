@@ -5,8 +5,15 @@
   <a href="/login">Login</a>
 </div>
 {{outlet}}
-
 <div class="main-footer">
     <br>
+    {{#if session.isAuthenticated}}
+      <button {{action 'logout'}}> Logout </button>
+    {{else}}
+      {{#link-to 'login'}}
+        Login!!
+      {{/link-to}}
+    {{/if}}
+
     --------------------------------------
 </div>
