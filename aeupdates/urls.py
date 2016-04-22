@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.conf.urls import url, include, patterns
 from rest_framework import routers
+from rest_framework.authtoken.views import obtain_auth_token
 from apps.subscriptions import views
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
@@ -34,5 +35,6 @@ urlpatterns += patterns(
     url(r'^users/(?P<path>.*)$', MainPageView.as_view()),
     url(r'^login/(?P<path>.*)$', MainPageView.as_view()),
     url(r'^manage/(?P<path>.*)$', MainPageView.as_view()),
-    url(r'^token/$', tokenizer_test)
+    url(r'^token/$', obtain_auth_token)
+    # url(r'^rest-auth/', include('rest_auth.urls'))
 )

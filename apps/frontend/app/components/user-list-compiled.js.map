@@ -1,1 +1,0 @@
-{"version":3,"sources":["user-list.js"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;;AAE1B,eAAe,KAAK,CAAC,SAAS,CAAC,MAAM,CAAC,EACrC,CAAC,CAAC","file":"user-list-compiled.js","sourcesContent":["import Ember from 'ember';\n\nexport default Ember.Component.extend({\n});\n"]}

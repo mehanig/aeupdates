@@ -3,3 +3,7 @@ djangorestframework==3.3.2
 django-unslashed>=0.3.0
 uwsgi==2.0.12
 psycopg2
+django-rest-auth==0.7.0
+django-cors-headers==1.1.0
+djangorestframework-jsonapi==2.0.0-beta.2
+

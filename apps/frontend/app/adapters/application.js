@@ -6,8 +6,11 @@ export default DRFAdapter.extend({
   addTrailingSlashes: false
 });
 
-export default DS.RESTAdapter.extend({
+
+// export default DS.RESTAdapter.extend({
+export default DS.JSONAPIAdapter.extend({
   namespace: 'api',
+  // host: ENV.host,
   authorizer: 'authorizer:application',
 
   buildURL: function(type, id, record) {
@@ -15,3 +18,11 @@ export default DS.RESTAdapter.extend({
     return this._super(type, id, record) + '/';
   }
 });
+
+
+import ENV from 'todo-ember/config/environment';
+
+// export default DS.JSONAPIAdapter.extend({
+//   host: ENV.host,
+//   namespace: 'api'
+// });
