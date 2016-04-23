@@ -42,7 +42,8 @@ INSTALLED_APPS = (
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_json_api',
-    'aeupdates'
+    'aeupdates',
+    'apps.products'
 )
 
 MIDDLEWARE_CLASSES = (

@@ -3,13 +3,15 @@ from django.conf.urls import url, include, patterns
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
 from apps.subscriptions import views
+from apps.products.views import ProductViewSet
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
-from .views import MainPageView, tokenizer_test
+
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register(r'products', ProductViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
