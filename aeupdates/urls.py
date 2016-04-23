@@ -32,9 +32,8 @@ urlpatterns += patterns(
     'django.contrib.staticfiles.views',
     url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'ember/index.html'}),
     url(r'^(?P<path>(?:js|css|img)/.*)$', 'serve'),
-    url(r'^users/(?P<path>.*)$', MainPageView.as_view()),
-    url(r'^login/(?P<path>.*)$', MainPageView.as_view()),
-    url(r'^manage/(?P<path>.*)$', MainPageView.as_view()),
+    url(r'^manage/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
+    url(r'^login/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
     url(r'^token/$', obtain_auth_token)
     # url(r'^rest-auth/', include('rest_auth.urls'))
 )

@@ -1,8 +1,7 @@
 <h2 id="title">Aeupdates, service for aescripts.com</h2>
 <div style="display: inline">
-  <a href="/manage">Manage</a>
-  <a href="/users">All Users</a>
-  <a href="/login">Login</a>
+    <li>{{#link-to "users"}}Users{{/link-to}}</li>
+    <li>{{#link-to "login"}}Login{{/link-to}}</li>
     | logged as {{user.username}}
 </div>
 {{outlet}}

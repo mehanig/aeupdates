@@ -1,6 +1,7 @@
 import DS from 'ember-data';
 import DRFAdapter from './drf';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
+import ENV from 'frontend/config/environment';
 
 export default DRFAdapter.extend({
   addTrailingSlashes: false
@@ -10,8 +11,8 @@ export default DRFAdapter.extend({
 // export default DS.RESTAdapter.extend({
 export default DS.JSONAPIAdapter.extend({
   namespace: 'api',
-  // host: ENV.host,
-  authorizer: 'authorizer:application',
+  host: ENV.APP.API_HOST ,
+  // authorizer: 'authorizer:application',
 
   buildURL: function(type, id, record) {
     //call the default buildURL and then append a slash
@@ -20,7 +21,6 @@ export default DS.JSONAPIAdapter.extend({
 });
 
 
-import ENV from 'todo-ember/config/environment';
 
 // export default DS.JSONAPIAdapter.extend({
 //   host: ENV.host,

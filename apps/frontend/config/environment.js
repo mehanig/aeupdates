@@ -21,8 +21,8 @@ module.exports = function(environment) {
 
   ENV['ember-simple-auth'] = {
     authenticationRoute: 'login',
-    routeAfterAuthentication: 'todos',
-    routeIfAlreadyAuthenticated: 'todos'
+    routeAfterAuthentication: '/OK',
+    routeIfAlreadyAuthenticated: '/OK'
   };
 
   if (environment === 'development') {
@@ -48,7 +48,8 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-
+    ENV.APP.API_HOST  = 'https://aescripts.com';
+    ENV.APP.API_NAMESPACE = 'api';
   }
   return ENV;
 };
