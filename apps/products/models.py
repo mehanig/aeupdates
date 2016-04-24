@@ -13,6 +13,9 @@ class Product(models.Model):
     # news: DS.hasMany('news-item')
 
     objects = models.Manager()
+
+    def __str__(self):
+        return 'Product: {}'.format(self.name)
     # class Meta:
     #     unique_together = ['user', 'target_type', 'target_id']
     #     index_together = [('target_type', 'target_id')]

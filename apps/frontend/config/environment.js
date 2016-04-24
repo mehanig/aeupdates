@@ -48,7 +48,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.APP.API_HOST  = 'https://aescripts.com';
+    ENV.APP.API_HOST  = 'https://aeupdates.com';
     ENV.APP.API_NAMESPACE = 'api';
   }
   return ENV;
