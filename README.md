@@ -13,4 +13,4 @@ aeupdates.com
 
 
 <h4>Deployment</h4>
-ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv 
+ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
