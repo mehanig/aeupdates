@@ -44,7 +44,7 @@ RUN curl --silent --location https://rpm.nodesource.com/setup_5.x | bash - \
 RUN npm install -g ember-cli@2.4
 RUN npm install -g bower
 
-# Invalidate cache and clone video compressor repo and install python requirements
+# Invalidate cache and clone aeupdates repo and install python requirements
 RUN echo `date` > build_time
 ADD  build_time /.build_time
 RUN source /aeupdates_venv/bin/activate \
