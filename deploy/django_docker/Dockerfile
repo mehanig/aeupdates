@@ -69,6 +69,6 @@ RUN mkdir /aeupdates/docker_nginx_folder
 ADD docker_run.sh /run.sh
 RUN chmod +x /run.sh
 
-EXPOSE 8080 8084 443 5432
+EXPOSE 8080 8084 443 5432 27017
 
 CMD /run.sh

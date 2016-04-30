@@ -1,0 +1,16 @@
+- name: kill all previously existed MongoDB containers
+  docker:
+    docker_api_version: 1.21
+    name: mongo-aeupdates
+    image: mongo:3.2.6
+    state: killed
+
+# Where is ansible modure for removing images?
+- command: docker rm mongo-aeupdates
+  ignore_errors: yes
+
+- name: Pull container
+  command: docker pull mongo:3.2.6
+
+- name: Rebuild Container
+  command: docker run --name mongo-aeupdates -v /mongodb/data:/mongodb/data -p 172.17.0.1:27017:27017 -d mongo:3.2.6
