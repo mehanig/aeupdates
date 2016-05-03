@@ -82,6 +82,10 @@ WSGI_APPLICATION = 'aeupdates.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+
+DATABASE_ROUTERS = ['aeupdates.router.MongoRouter']
+DATABASE_APPS_MAPPING = {'default': 'default', 'mongo':'mongo'}
+
 IS_PRODUCTION = False
 if IS_PRODUCTION:
     DATABASES = {
@@ -92,6 +96,10 @@ if IS_PRODUCTION:
             'PASSWORD': MY_PSQL_PASS,
             'HOST': '172.17.0.1',
             'PORT': '5432',
+        },
+        'mongo' : {
+            'ENGINE' : 'django_mongodb_engine',
+            'NAME' : 'aeupdates'
         }
     }
 else:
