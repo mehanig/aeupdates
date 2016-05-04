@@ -1,22 +1,29 @@
-<h1>Login</h1>
-
-<form {{action 'authenticate' on='submit'}}>
-  <p>
-    <label for="username">Login</label>
-    {{input id='username' placeholder='Enter Login' value=username}}
-  </p>
-  <p>
-    <label for="password">Password</label>
-    {{input id='password' placeholder='Enter Password' type='password' value=password}}
-  </p>
-  <p>
-    <button type="submit">Login</button>
-  </p>
-  {{#if error}}
-    <p>{{error}}</p>
-  {{/if}}
-</form>
-
+<h2>Login into your account</h2>
+<div class="cls-content">
+    <div class="cls-content-sm panel">
+	    <div class="panel-body">
+		    <p class="pad-btm">Enter your credentials:</p>
+            <form {{action 'authenticate' on='submit'}}>
+                <p>
+                    <label for="username">Login</label>
+                    {{input id='username' placeholder='Enter Login' value=username}}
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    {{input id='password' placeholder='Enter Password' type='password' value=password}}
+                </p>
+                <p>
+                    <button type="submit">Login</button>
+                </p>
+                {{#if error}}
+                    <p>
+                        {{error}}
+                    </p>
+                {{/if}}
+            </form>
+        </div>
+    </div>
+</div>
 {{#if errorMessage}}
   <p>
       <strong>Login failed:</strong>

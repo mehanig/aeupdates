@@ -20,5 +20,17 @@ module.exports = function(defaults) {
   // modules that you would like to import into your application
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
+  //
+
+  //Add CSS to build
+  // app.import('bower_components/jquery/dist/jquery.min.js');
+  app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
+  app.import('bower_components/bootstrap/dist/css/bootstrap.css');
+  app.import('bower_components/fastclick/lib/fastclick.js');
+  app.import('bower_components/PACE/pace.js');
+  app.import('bower_components/PACE/themes/yellow/pace-theme-corner-indicator.css');
+  app.import('bower_components/aeupdates_css_js/nifty.min.js');
+  app.import('bower_components/aeupdates_css_js/nifty.min.css');
+  app.import('bower_components/aeupdates_css_js/theme-yellow.min.css');
   return app.toTree();
 };

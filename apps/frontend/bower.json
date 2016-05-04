@@ -1,9 +1,17 @@
 {
   "name": "frontend",
   "dependencies": {
-    "ember": "~2.4.1",
+    "ember": "2.4.2",
     "ember-cli-shims": "0.1.0",
     "ember-cli-test-loader": "0.2.2",
-    "ember-qunit-notifications": "0.1.0"
+    "ember-qunit-notifications": "0.1.0",
+    "jquery": "2.2.1",
+    "bootstrap": "3.3.6",
+    "fastclick": "1.0.6",
+    "pace": "1.0.2",
+    "aeupdates_css_js": "git@github.com:mehanig/html_for_aeupdates"
+  },
+  "resolutions": {
+    "ember": "2.4.2"
   }
 }
