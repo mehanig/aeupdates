@@ -9,7 +9,7 @@ from django.contrib.staticfiles.views import serve
 
 
 router = routers.DefaultRouter()
-router.register(r'users', views.UserViewSet)
+router.register(r'users', views.UserViewSet, 'users')
 router.register(r'groups', views.GroupViewSet)
 router.register(r'products', ProductViewSet)
 
