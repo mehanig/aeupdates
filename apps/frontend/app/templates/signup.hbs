@@ -1,0 +1,37 @@
+<h2>Register</h2>
+<div class="cls-content">
+    <div class="cls-content-sm panel">
+	    <div c lass="panel-body">
+		    <p  class="pad-btm">Enter your credentials:</p>
+            <form {{action 'register' on='submit'}}>
+                <p>
+                     <label for="email">Login</label>
+                         {{input id='email' placeholder='Enter Login' value=username}}
+                </p>
+                <p>
+                     <label for="password1">Password</label>
+                    {{input id='password1' placeholder='Enter Password' type='password' value=password1}}
+                </p>
+                <p>
+                     <label for="password1">Re-type password</label>
+                    {{input id='password2' placeholder='Enter Password' type='password' value=password2}}
+                </p>
+
+                <p>
+                    <button type="submit">Register</button>
+                </p>
+                {{#if error}}
+                     <p>
+                        {{error}}
+                    </p>
+                {{/if}}
+            </form>
+        </div>
+    </div>
+</div>
+{{#if errorMessage}}
+  <p>
+      <strong>Register failed:</strong>
+      <code>{{errorMessage}}</code>
+  </p>
+{{/if}}
