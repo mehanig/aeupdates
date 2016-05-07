@@ -8,8 +8,8 @@ export default DRFAdapter.extend({
 });
 
 
-// export default DS.RESTAdapter.extend({
-export default DS.JSONAPIAdapter.extend({
+export default DS.RESTAdapter.extend({
+//export default DS.JSONAPIAdapter.extend({
   namespace: 'api',
   host: ENV.APP.API_HOST ,
   // authorizer: 'authorizer:application',

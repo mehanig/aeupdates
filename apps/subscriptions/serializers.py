@@ -10,6 +10,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     def create(self, validated_data):
         print(validated_data)
+        name = validated_data['username']
+        print(name)
         user = User(
             username=validated_data['username']
         )
