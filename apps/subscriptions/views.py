@@ -13,8 +13,17 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def list(self, request, *args, **kwargs):
         queryset = User.objects.all().order_by('-date_joined')
-        serializer = UserSerializer(queryset, many=True, context={'request': request})
+        serializer = UserSerializer(queryset, many=True,
+                                    context={'request': request})
         return Response(data=serializer.data)
+
+    def create(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors)
+
 
 class GroupViewSet(viewsets.ModelViewSet):
     """
