@@ -1,30 +1,46 @@
 <h2>Register</h2>
 <div class="cls-content">
     <div class="cls-content-sm panel">
-	    <div c lass="panel-body">
+	    <div class="panel-body">
 		    <p  class="pad-btm">Enter your credentials:</p>
-            <form {{action 'register' on='submit'}}>
-                <p>
-                     <label for="email">Login</label>
-                         {{input id='email' placeholder='Enter Login' value=username}}
-                </p>
-                <p>
-                     <label for="password1">Password</label>
-                    {{input id='password1' placeholder='Enter Password' type='password' value=password1}}
-                </p>
-                <p>
-                     <label for="password1">Re-type password</label>
-                    {{input id='password2' placeholder='Enter Password' type='password' value=password2}}
-                </p>
-
-                <p>
-                    <button type="submit">Register</button>
-                </p>
-                {{#if error}}
+        <form {{action 'register' on='submit'}}><div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        {{~input id='email' class="form-control" type="text" placeholder='Enter email' value=username ~}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        {{~input id='password1' class="form-control" type="password" placeholder='Enter password' value=password1~}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        {{~input id='password2' class="form-control" type="password" placeholder='Re-enter password' value=password2~}}
+                    </div>
+                </div>
+                <div class="row">
+							      <div class="col-xs-8 text-left checkbox">
+    				    		</div>
+    						    <div class="col-xs-4">
+    								    <div class="form-group text-right">
+            								<button class="btn btn-success text-uppercase" type="submit">Register</button>
+           							</div>
+    							  </div>
+    						</div>
+                {{~#if error}}
                      <p>
                         {{error}}
                     </p>
-                {{/if}}
+                {{/if~}}
             </form>
         </div>
     </div>

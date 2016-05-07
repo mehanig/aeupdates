@@ -3,30 +3,47 @@
     <div class="cls-content-sm panel">
 	    <div class="panel-body">
 		    <p class="pad-btm">Enter your credentials:</p>
-            <form {{action 'authenticate' on='submit'}}>
-                <p>
-                    <label for="username">Login</label>
-                    {{input id='username' placeholder='Enter Login' value=username}}
-                </p>
-                <p>
-                    <label for="password">Password</label>
-                    {{input id='password' placeholder='Enter Password' type='password' value=password}}
-                </p>
-                <p>
-                    <button type="submit">Login</button>
-                </p>
-                {{#if error}}
+            <form {{action 'authenticate' on='submit'}}><div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        {{~input id='username' class="form-control" type="text" placeholder='Enter username or email' value=username ~}}
+                    </div>
+                </div><div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        {{~input id='password' class="form-control" type="password" placeholder='Enter password' value=password~}}
+                    </div>
+                </div>
+                <div class="row">
+							      <div class="col-xs-8 text-left checkbox">
+								        <label class="form-checkbox form-icon form-text">
+            								<input type="checkbox"> Remember me
+        								</label>
+    				    		</div>
+    						    <div class="col-xs-4">
+    								    <div class="form-group text-right">
+            								<button class="btn btn-success text-uppercase" type="submit">Sign In</button>
+           							</div>
+    							  </div>
+    						</div>
+                {{~#if error}}
                     <p>
                         {{error}}
                     </p>
-                {{/if}}
+                {{~/if}}
+                <div class="mar-btm"><em>- don't have an account? -</em></div>
+                {{#link-to 'signup' class='btn btn-primary btn-lg btn-block' tagName='button'}} Register {{/link-to}}
             </form>
         </div>
     </div>
 </div>
-{{#if errorMessage}}
+{{~#if errorMessage}}
   <p>
       <strong>Login failed:</strong>
       <code>{{errorMessage}}</code>
   </p>
-{{/if}}
+{{~/if}}

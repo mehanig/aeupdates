@@ -5,6 +5,8 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
    beforeModel() {
     if (this.session.isAuthenticated) {
       return this._populateCurrentUser();
+    } else {
+        this.transitionTo('about');
     }
   },
 
