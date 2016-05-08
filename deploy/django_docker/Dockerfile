@@ -54,9 +54,6 @@ RUN source /aeupdates_venv/bin/activate \
 # Create dir for ember project
 RUN mkdir -p /aeupdates/aeupdates/static/ember
 
-# Security issue, buy without it cant bower install from github(
-RUN ssh -o StrictHostKeyChecking=no git@github.com
-
 # Generate all necessary adapters and install all stuff, buld project from run.sh
 RUN cd /aeupdates/apps/frontend \
  && npm install \
