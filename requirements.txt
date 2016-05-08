@@ -12,3 +12,4 @@ pymongo==3.2.2
 
 # django norel overwrites django, so make sure we have 1.9.2
 django==1.9.2
+django-password-reset==0.8.2

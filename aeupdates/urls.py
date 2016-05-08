@@ -21,6 +21,9 @@ urlpatterns = [
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
 
+# Add urls to resetting passwords
+include('password_reset.urls')
+
 if settings.DEBUG:
     urlpatterns += [
       url(r'^static/(?P<path>.*)$', serve),
@@ -32,6 +35,7 @@ if settings.DEBUG:
 
 urlpatterns += patterns(
     'django.contrib.staticfiles.views',
+    (r'^password/', include('password_reset.urls')),
     url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'ember/index.html'}),
     url(r'^(?P<path>(?:js|css|img)/.*)$', 'serve'),
     url(r'^manage/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),

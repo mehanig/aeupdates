@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     'rest_framework.authtoken',
     'rest_framework_json_api',
     'aeupdates',
+    'password_reset',
     'apps.products',
 )
 
