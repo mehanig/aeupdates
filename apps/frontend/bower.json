@@ -9,7 +9,7 @@
     "bootstrap": "3.3.6",
     "fastclick": "1.0.6",
     "pace": "1.0.2",
-    "aeupdates_css_js": "https://github.com/mehanig/html_for_aeupdates"
+    "aeupdates_css_js": "git@github.com:mehanig/html_for_aeupdates"
   },
   "resolutions": {
     "ember": "2.5.1"
