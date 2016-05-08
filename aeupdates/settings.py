@@ -114,6 +114,12 @@ else:
         }
     }
 
+EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_HOST_USER = MY_EMAIL_HOST_USER
+EMAIL_HOST_PASSWORD = MY_EMAIL_HOST_PASSWORD
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
