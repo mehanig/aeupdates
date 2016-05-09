@@ -91,9 +91,9 @@ WSGI_APPLICATION = 'aeupdates.wsgi.application'
 DATABASE_ROUTERS = ['aeupdates.router.MongoRouter']
 DATABASE_APPS_MAPPING = {'default': 'default', 'mongo': 'mongo'}
 
-IS_PRODUCTION = False
+MY_CONFIG_IS_PRODUCTION = False
 
-if IS_PRODUCTION:
+if MY_CONFIG_IS_PRODUCTION:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
