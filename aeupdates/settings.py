@@ -88,6 +88,7 @@ DATABASE_ROUTERS = ['aeupdates.router.MongoRouter']
 DATABASE_APPS_MAPPING = {'default': 'default', 'mongo': 'mongo'}
 
 IS_PRODUCTION = False
+
 if IS_PRODUCTION:
     DATABASES = {
         'default': {
