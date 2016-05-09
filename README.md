@@ -20,3 +20,9 @@ ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
 
 1) Change HOST in /apps/frontend/config/enviroment.js:
     ENV.APP.API_HOST = 'http://37.139.30.9:8080';
+
+
+
+<b>If instance is new or migrations needed<b>
+1)python manage.py migrate
+2)python manage.py createsuperuser
