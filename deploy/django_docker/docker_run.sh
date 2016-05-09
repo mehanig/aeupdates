@@ -9,7 +9,7 @@ chmod -R 777 $UPLOADS_DIR/docker_nginx_folder
 
 # Build Ember Project
 
-cd /aeupdates/apps/frontend && ember build -o /aeupdates/aeupdates/static/ember
+cd /aeupdates/apps/frontend && ember build -o /aeupdates/aeupdates/static/ember --environment=production
 
 /usr/local/nginx/sbin/nginx -c /aeupdates/nginx_conf/nginx.conf
 
