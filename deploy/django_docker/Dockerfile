@@ -49,6 +49,7 @@ RUN echo `date` > build_time
 ADD  build_time /.build_time
 RUN source /aeupdates_venv/bin/activate \
   && git clone https://github.com/mehanig/aeupdates \
+  && cd aeupdates \
   && grep -v "^#" requirements.txt | xargs -n 1 -L 1 pip install
 
 # Create dir for ember project
