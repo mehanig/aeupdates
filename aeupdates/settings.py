@@ -91,8 +91,6 @@ WSGI_APPLICATION = 'aeupdates.wsgi.application'
 DATABASE_ROUTERS = ['aeupdates.router.MongoRouter']
 DATABASE_APPS_MAPPING = {'default': 'default', 'mongo': 'mongo'}
 
-MY_CONFIG_IS_PRODUCTION = False
-
 if MY_CONFIG_IS_PRODUCTION:
     DATABASES = {
         'default': {
