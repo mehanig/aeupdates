@@ -27,8 +27,8 @@ module.exports = function(defaults) {
   app.import('bower_components/bootstrap/dist/js/bootstrap.min.js');
   app.import('bower_components/bootstrap/dist/css/bootstrap.css');
   app.import('bower_components/fastclick/lib/fastclick.js');
-  app.import('bower_components/PACE/pace.js');
-  app.import('bower_components/PACE/themes/yellow/pace-theme-corner-indicator.css');
+  app.import('bower_components/pace/pace.js');
+  app.import('bower_components/pace/themes/yellow/pace-theme-corner-indicator.css');
   app.import('bower_components/aeupdates_css_js/nifty.min.js');
   app.import('bower_components/aeupdates_css_js/nifty.min.css');
   app.import('bower_components/aeupdates_css_js/theme-yellow.min.css');
