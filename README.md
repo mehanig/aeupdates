@@ -14,3 +14,9 @@ aeupdates.com
 
 <h4>Deployment</h4>
 ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
+
+
+<h4>Changes, needed before deployment in production</h4>
+
+1) Change HOST in /apps/frontend/config/enviroment.js:
+    ENV.APP.API_HOST = 'http://37.139.30.9:8080';
