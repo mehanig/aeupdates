@@ -59,9 +59,7 @@ RUN mkdir -p /aeupdates/aeupdates/static/ember
 RUN cd /aeupdates/apps/frontend \
  && npm install \
  && bower install --allow-root \
- && ember install ember-django-adapter \
- && ember generate drf-serializer user \
- && ember generate drf-adapter application
+ && ember install ember-django-adapter
 # && ember build -o /aeupdates/aeupdates/static/ember \
 
 # Create filder for nginx folder
