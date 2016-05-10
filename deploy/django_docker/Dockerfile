@@ -58,8 +58,8 @@ RUN mkdir -p /aeupdates/aeupdates/static/ember
 # Generate all necessary adapters and install all stuff, buld project from run.sh
 RUN cd /aeupdates/apps/frontend \
  && npm install \
- && bower install --allow-root \
- && ember install ember-django-adapter
+ && bower install --allow-root
+#  && ember install ember-django-adapter
 # && ember build -o /aeupdates/aeupdates/static/ember \
 
 # Create filder for nginx folder
