@@ -100,11 +100,11 @@ if MY_CONFIG_IS_PRODUCTION:
             'PASSWORD': MY_PSQL_PASS,
             'HOST': '172.17.0.1',
             'PORT': '5432',
-        },
-        'mongo': {
-            'ENGINE': 'django_mongodb_engine',
-            'NAME': 'aeupdates'
         }
+#        'mongo': {
+#            'ENGINE': 'django_mongodb_engine',
+#            'NAME': 'aeupdates'
+#        }
     }
 else:
     # HELLO!
