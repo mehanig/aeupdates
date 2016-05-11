@@ -4,25 +4,12 @@ from rest_framework import viewsets
 from apps.subscriptions.serializers import UserSerializer, GroupSerializer
 
 
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication
-
-
-class CsrfExemptSessionAuthentication(SessionAuthentication):
-
-    def enforce_csrf(self, request):
-        return  # To not perform the csrf check previously happening
-
-
 class UserViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
     """
     serializer_class = UserSerializer
     model = User
-
-
-    authentication_classes = (CsrfExemptSessionAuthentication, BasicAuthentication)
-
 
     def list(self, request, *args, **kwargs):
         queryset = User.objects.all().order_by('-date_joined')
