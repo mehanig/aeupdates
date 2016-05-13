@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('products');
   this.route('signup');
   this.route('about');
+  this.route('aeupdates');
 });
 
 export default Router;

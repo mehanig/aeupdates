@@ -2,12 +2,13 @@ import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
-   beforeModel() {
-    if (this.session.isAuthenticated) {
+  afterModel() {
+    if (this.get('session.isAuthenticated')) {
       return this._populateCurrentUser();
     } else {
         this.transitionTo('about');
     }
+
   },
 
   actions: {
@@ -17,8 +18,9 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   _populateCurrentUser() {
-    const { user_id, user_type } = this.get('session.secure');
-    return this.store.find(user_type, user_id)
+    console.log(Ember.inspect( this.get('session.data.authenticated')));
+    //const { user_id, user_type } = this.get('session.data.authenticated.token');
+    return this.store.findAll('aeupdates')
       .then(user => this.get('currentUser').set('content', user) && user);
   }
 });
