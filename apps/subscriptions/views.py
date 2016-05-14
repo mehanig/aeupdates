@@ -11,7 +11,7 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     model = User
 
-    def list(self, request, *args, **kwargs):
+    def list(self, request):
         queryset = User.objects.all().order_by('-date_joined')
         serializer = UserSerializer(queryset, many=True,
                                     context={'request': request})
@@ -23,6 +23,17 @@ class UserViewSet(viewsets.ModelViewSet):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
+
+
+class AeupdatesViewSet(viewsets.ModelViewSet):
+    def list(self, request):
+        if request.user.is_authenticated():
+            queryset = User.objects.all()
+            serializer = UserSerializer(queryset, many=True,
+                                    context={'request': request})
+            return Response(data=serializer.data)
+        else:
+            return "None"
 
 
 class GroupViewSet(viewsets.ModelViewSet):

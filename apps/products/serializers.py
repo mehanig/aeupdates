@@ -7,7 +7,6 @@ class ProductSerializer(serializers.HyperlinkedModelSerializer):
         model = Product
         fields = ('id', 'url', 'name', 'version')
 
-
 # class GroupSerializer(serializers.HyperlinkedModelSerializer):
 #     class Meta:
 #         model = Group
