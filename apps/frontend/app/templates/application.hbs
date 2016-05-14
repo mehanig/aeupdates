@@ -4,7 +4,8 @@
 	        <a class="box-inline" href="/">
 		        <span class="brand-title">Aeupdates<span class="text-thin">  service for aescripts.com</span></span>
     			</a>
-            <div style="display: inline">
+          <div style="display: inline">
+              {{CurrentUser}}
                 <span>{{#link-to "users"}}Users{{/link-to}}</span>
                 <span>{{#link-to "manage"}}Manage{{/link-to}}</span>
                 {{#if session.isAuthenticated}}
