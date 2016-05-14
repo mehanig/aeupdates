@@ -1,5 +1,8 @@
 import Ember from 'ember';
 import ApplicationRouteMixin from 'ember-simple-auth/mixins/application-route-mixin';
+var App = window.App = Ember.Application.extend();
+
+const { service } = Ember.inject;
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   afterModel() {
@@ -8,8 +11,20 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     } else {
         this.transitionTo('about');
     }
-
   },
+
+  sessionAuthenticated() {
+    this._super(...arguments);
+    this._loadCurrentUser().catch(() => this.get('session').invalidate());
+  },
+
+  _loadCurrentUser() {
+    var currUser = this.get('sessionAccount').loadCurrentUser();
+    alert(this.get('session.isAuthenticated'));
+    console.log( Ember.inspect(currUser.authenticated) );
+    return currUser
+    },
+    
 
   actions: {
     sessionAuthenticationSucceeded() {
