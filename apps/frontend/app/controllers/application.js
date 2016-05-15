@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
     this.set('CurrentUser', session);
     if (session.isAuthenticated) {
       this.set('CurrentUser', 'Authenticated');
-        alert(this.get('isLoggedIn'));
+        //alert(this.get('isLoggedIn'));
     //  return this._populateCurrentUser();
     } else {
       this.set('CurrentUser', 'NON');

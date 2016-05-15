@@ -16,11 +16,11 @@ export default DRFAdapter.extend({
 
 
 //export default DS.RESTAdapter.extend({
-export default DS.JSONAPIAdapter.extend({
+export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
   namespace: 'api',
   host: ENV.APP.API_HOST ,
   // authorizer: 'authorizer:application',
- // authorizer: 'authorizer:application',
+  authorizer: 'authorizer:token',
   buildURL: function(type, id, record) {
     //call the default buildURL and then append a slash
     return this._super(type, id, record) + '/';
