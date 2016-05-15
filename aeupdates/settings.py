@@ -176,6 +176,10 @@ REST_FRAMEWORK = {
     'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
 }
 
+#JWT TOKENS SETTINGS
+JWT_AUTH = {
+    'JWT_ALLOW_REFRESH': True,
+}
 
 APPEND_SLASH = True
 REMOVE_SLASH = False

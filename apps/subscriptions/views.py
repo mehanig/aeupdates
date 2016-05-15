@@ -7,6 +7,7 @@ from rest_framework_jwt.views import ObtainJSONWebToken, RefreshJSONWebToken, \
     VerifyJSONWebToken
 from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
+from rest_framework_jwt.serializers import VerifyJSONWebTokenSerializer as Verifyer
 
 
 class ObtainJSONWebTokenPlainJSON(ObtainJSONWebToken):
@@ -22,6 +23,15 @@ class RefreshJSONWebTokenPlainJSON(RefreshJSONWebToken):
 class VerifyJSONWebTokenPlainJSON(VerifyJSONWebToken):
     parser_classes = (JSONParser, )
     renderer_classes = (JSONRenderer,)
+
+
+# TODO user_id should be parsable to int
+def check_permissions_by_header(request, user_id=None):
+    bearer = request.META['HTTP_AUTHORIZATION'].split()[-1]
+    result = Verifyer().validate({'token': bearer})
+    if result.get('user') and result['user'].id == int(user_id):
+        return True
+    return False
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -43,6 +53,13 @@ class UserViewSet(viewsets.ModelViewSet):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
+
+    def retrieve(self, request, pk=None):
+        if check_permissions_by_header(request, pk):
+            queryset = User.objects.get(pk=pk)
+            serializer = UserSerializer(queryset, many=False,
+                                    context={'request': request})
+            return Response(serializer.data)
 
 
 class AeupdatesViewSet(viewsets.ModelViewSet):

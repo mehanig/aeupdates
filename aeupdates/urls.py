@@ -42,7 +42,8 @@ urlpatterns += patterns(
     url(r'^manage/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
     url(r'^login/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
     url(r'^signup/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
-    url(r'^token/$', views.ObtainJSONWebTokenPlainJSON.as_view())
+    url(r'^token/$', views.ObtainJSONWebTokenPlainJSON.as_view()),
+    url(r'^token-refresh/', views.RefreshJSONWebTokenPlainJSON.as_view())
     # url(r'^token/$', obtain_auth_token)
     # url(r'^rest-auth/', include('rest_auth.urls'))
 )
