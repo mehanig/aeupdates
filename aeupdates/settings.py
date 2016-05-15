@@ -88,9 +88,6 @@ WSGI_APPLICATION = 'aeupdates.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASE_ROUTERS = ['aeupdates.router.MongoRouter']
-DATABASE_APPS_MAPPING = {'default': 'default', 'mongo': 'mongo'}
-
 if MY_CONFIG_IS_PRODUCTION:
     DATABASES = {
         'default': {
