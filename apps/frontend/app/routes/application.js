@@ -19,6 +19,7 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
   },
 
   _loadCurrentUser() {
+    //TODO: FIX IMPLEMENTATION!  
     var currUser = this.get('sessionAccount').loadCurrentUser();
     alert(this.get('session.isAuthenticated'));
     console.log( Ember.inspect(currUser.authenticated) );

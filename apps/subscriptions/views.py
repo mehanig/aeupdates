@@ -3,6 +3,26 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 from apps.subscriptions.serializers import UserSerializer, GroupSerializer
 
+from rest_framework_jwt.views import ObtainJSONWebToken, RefreshJSONWebToken, \
+    VerifyJSONWebToken
+from rest_framework.parsers import JSONParser
+from rest_framework.renderers import JSONRenderer
+
+
+class ObtainJSONWebTokenPlainJSON(ObtainJSONWebToken):
+    parser_classes = (JSONParser, )
+    renderer_classes = (JSONRenderer, )
+
+
+class RefreshJSONWebTokenPlainJSON(RefreshJSONWebToken):
+    parser_classes = (JSONParser, )
+    renderer_classes = (JSONRenderer,)
+
+
+class VerifyJSONWebTokenPlainJSON(VerifyJSONWebToken):
+    parser_classes = (JSONParser, )
+    renderer_classes = (JSONRenderer,)
+
 
 class UserViewSet(viewsets.ModelViewSet):
     """

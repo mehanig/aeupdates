@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import url, include, patterns
 from rest_framework import routers
 from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework_jwt.views import obtain_jwt_token
 from apps.subscriptions import views
 from apps.products.views import ProductViewSet
 from django.contrib import admin
@@ -41,6 +42,7 @@ urlpatterns += patterns(
     url(r'^manage/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
     url(r'^login/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
     url(r'^signup/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
-    url(r'^token/$', obtain_auth_token)
+    url(r'^token/$', views.ObtainJSONWebTokenPlainJSON.as_view())
+    # url(r'^token/$', obtain_auth_token)
     # url(r'^rest-auth/', include('rest_auth.urls'))
 )

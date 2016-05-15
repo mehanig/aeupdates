@@ -22,7 +22,19 @@ module.exports = function(environment) {
   ENV['ember-simple-auth'] = {
     authenticationRoute: 'login',
     routeAfterAuthentication: 'manage',
-    routeIfAlreadyAuthenticated: 'manage'
+    routeIfAlreadyAuthenticated: 'manage',
+    authorizer: 'authorizer:token'
+    //crossOriginWhitelist: ['*']
+  };
+
+  ENV['ember-simple-auth-token'] = {
+   serverTokenEndpoint: '/token/',
+   refreshAccessTokens: true,
+   timeFactor: 100,
+   refreshLeeway: 3000,
+   authorizationPrefix: 'Bearer ',
+   authorizationHeaderName: 'Authorization',
+   headers: {},
   };
 
   if (environment === 'development') {
