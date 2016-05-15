@@ -1,3 +1,4 @@
+django==1.9.2
 djangorestframework==3.3.2
 django-unslashed>=0.3.0
 uwsgi==2.0.12
@@ -6,12 +7,6 @@ django-rest-auth==0.7.0
 django-cors-headers==1.1.0
 djangorestframework-jsonapi==2.0.0-beta.2
 pymongo==3.2.2
--e git+https://github.com/django-nonrel/django@nonrel-1.5#egg=djangoNonrel
--e git+https://github.com/django-nonrel/djangotoolbox#egg=djangotoolbox
--e git+https://github.com/django-nonrel/mongodb-engine#egg=django_mongo_engine
-
-# django norel overwrites django, so make sure we have 1.9.2
-django==1.9.2
 django-password-reset==0.8.2
 djangorestframework-jwt==1.8.0
 

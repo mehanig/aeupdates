@@ -101,10 +101,6 @@ if MY_CONFIG_IS_PRODUCTION:
             'HOST': '172.17.0.1',
             'PORT': '5432',
         }
-#        'mongo': {
-#            'ENGINE': 'django_mongodb_engine',
-#            'NAME': 'aeupdates'
-#        }
     }
 else:
     # HELLO!
@@ -114,7 +110,7 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
             'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
+        },
     }
 
 EMAIL_HOST = 'smtp.mailgun.org'
