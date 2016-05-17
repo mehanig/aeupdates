@@ -111,6 +111,13 @@ else:
         },
     }
 
+MONGO_DB = {
+    'mongo': {
+        'HOST': 'localhost',
+        'PORT': 27017
+    },
+}
+
 EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_HOST_USER = MY_EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = MY_EMAIL_HOST_PASSWORD
