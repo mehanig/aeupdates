@@ -112,7 +112,10 @@ else:
         },
     }
 
-MONGO_HOST = 'localhost'
+if MY_CONFIG_IS_PRODUCTION:
+    MONGO_HOST = '172.17.0.1'
+else:
+    MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
 MONGO_DB_NAME = 'aeupdates'
 
