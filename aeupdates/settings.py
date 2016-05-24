@@ -112,9 +112,9 @@ else:
         },
     }
 
-MONGO_HOST = 'localhost',
-MONGO_PORT = 27017,
-MONGO_DB_NAME = 'aeupdates',
+MONGO_HOST = 'localhost'
+MONGO_PORT = 27017
+MONGO_DB_NAME = 'aeupdates'
 
 EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_HOST_USER = MY_EMAIL_HOST_USER
