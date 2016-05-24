@@ -1,6 +1,11 @@
-# TODO: Check if real script path
+from apps.products.models import Product
+
 def is_scripts_api_path(path):
-    return True
+    all_products = Product.objects.all()
+    for product in all_products:
+        if product.url.split('/')[1:] ==(path.split('/')[1:]):
+            return True
+    return False
 
 
 # TODO: Implement logging to mongodb

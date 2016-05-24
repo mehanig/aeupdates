@@ -49,6 +49,7 @@ INSTALLED_APPS = (
     'aeupdates',
     'password_reset',
     'apps.products',
+    'aeupdates.utils',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,12 +112,9 @@ else:
         },
     }
 
-MONGO_DB = {
-    'mongo': {
-        'HOST': 'localhost',
-        'PORT': 27017
-    },
-}
+MONGO_HOST = 'localhost',
+MONGO_PORT = 27017,
+MONGO_DB_NAME = 'aeupdates',
 
 EMAIL_HOST = 'smtp.mailgun.org'
 EMAIL_HOST_USER = MY_EMAIL_HOST_USER
