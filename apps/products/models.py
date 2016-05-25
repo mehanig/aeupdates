@@ -10,6 +10,7 @@ class Product(models.Model):
     url = models.CharField(max_length=128)
     name = models.CharField(max_length=128)
     version = models.CharField(max_length=128)
+    product = models.CharField(max_length=128, blank=True)
     # news: DS.hasMany('news-item')
 
     objects = models.Manager()
