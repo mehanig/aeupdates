@@ -1,9 +1,5 @@
 from django.db import models
-
-# Create your models here.
-
-# class ProductManager(models.Manager):
-#     pass
+from apps import news as news
 
 
 class Product(models.Model):
@@ -11,19 +7,9 @@ class Product(models.Model):
     name = models.CharField(max_length=128)
     version = models.CharField(max_length=128)
     product = models.CharField(max_length=128, blank=True)
-    # news: DS.hasMany('news-item')
+    news = models.ManyToManyField('news.News')
 
     objects = models.Manager()
 
     def __str__(self):
         return 'Product: {}'.format(self.name)
-    # class Meta:
-    #     unique_together = ['user', 'target_type', 'target_id']
-    #     index_together = [('target_type', 'target_id')]
-    #     ordering = ['-id']
-    #
-    #
-    # def __str__(self):
-    #     return '{user}: {poll} on {target}'.format(
-    #         user=self.user, poll=self.get_poll_display(), target=self.target
-    #     )

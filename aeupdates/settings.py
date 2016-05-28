@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'aeupdates',
     'password_reset',
     'apps.products',
+    'apps.news',
     'aeupdates.utils',
 )
 
