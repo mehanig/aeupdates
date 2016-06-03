@@ -28,8 +28,11 @@ ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
 2)python manage.py createsuperuser
 
 
-###Local installation for developers:
+###Local installation for Mac developers:
 
- 1) create file `secret_config.py` near `public_config`
- 2) run migrations - `python manage.py migrate`
- 3) create superuser - `python manage.py migrate`
+- install psql: `brew install postgresql`
+- install mongodb: `brew install mongodb`
+- install requirements: `pip install -r requirements.txt`
+- create file `secret_config.py` near `public_config`
+- run migrations - `python manage.py migrate`
+- create superuser - `python manage.py migrate`
