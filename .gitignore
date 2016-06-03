@@ -20,3 +20,4 @@ apps/frontend/bower_components
 aeupdates/static/
 apps/frontend/dist/
 
+.DS_Store
