@@ -23,6 +23,13 @@ ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
 
 
 
-<b>If instance is new or migrations needed<b>
+<b>If instance is new or migrations needed</b>
 1)python manage.py migrate
 2)python manage.py createsuperuser
+
+
+###Local installation for developers:
+
+ 1) create file `secret_config.py` near `public_config`
+ 2) run migrations - `python manage.py migrate`
+ 3) create superuser - `python manage.py migrate`
