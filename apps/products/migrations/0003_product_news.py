@@ -16,6 +16,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='product',
             name='news',
-            field=models.ManyToManyField(to='news.News'),
+            field=models.ManyToManyField(blank=True, to='news.News'),
         ),
     ]
