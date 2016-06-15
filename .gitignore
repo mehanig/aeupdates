@@ -21,3 +21,4 @@ aeupdates/static/
 apps/frontend/dist/
 
 .DS_Store
+*.sqlite3
