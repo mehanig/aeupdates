@@ -24,7 +24,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
   buildURL: function(type, id, record) {
     //call the default buildURL and then append a slash
     return this._super(type, id, record) + '/';
-  },
+  }
 //  ajax: function(url, method, hash) {
 //    hash = hash || {};
 //    hash.xhrFields = {withCredentials: true};

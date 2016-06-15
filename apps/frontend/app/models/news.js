@@ -1,6 +1,6 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-  ver: DS.attr('string'),
-  content: DS.attr('string')
+  version: DS.attr('string'),
+  changes: DS.attr('string')
 });

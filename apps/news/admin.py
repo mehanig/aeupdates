@@ -1,6 +1,5 @@
 from django.contrib import admin
-from apps.news.models import News, VersionChange
+from apps.news.models import News
 
 
 admin.site.register(News)
-admin.site.register(VersionChange)

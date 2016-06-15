@@ -1,4 +1,4 @@
-from apps.news.models import News, VersionChange
+from apps.news.models import News
 from rest_framework import serializers
 
 
@@ -6,10 +6,4 @@ class NewsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = News
-        fields = ('id', 'version')
-
-
-class VersionChangeSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = VersionChange
-        fields = ('id', 'info')
+        fields = ('id', 'version', 'changes')

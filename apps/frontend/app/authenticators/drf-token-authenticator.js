@@ -12,7 +12,7 @@ var cookie_csrf_updater = function (xhr) {
       break;
     }
   }
-  xhr.setRequestHeader("X-CSRFToken", cookVal)
+  xhr.setRequestHeader("X-CSRFToken", cookVal);
 };
 
 export default Base.extend({
@@ -51,5 +51,5 @@ export default Base.extend({
         });
       });
     });
-  },
+  }
 });

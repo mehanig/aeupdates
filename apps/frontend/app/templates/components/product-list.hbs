@@ -1,3 +1,6 @@
 {{#each products as |product|}}
   <br>{{product.name}}: {{product.url}}, {{product.version}}<br>
+  Versions log:
+  {{news-list news=product.news}}
+  <br>
 {{/each}}
