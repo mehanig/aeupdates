@@ -35,4 +35,4 @@ ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
 - install requirements: `pip install -r requirements.txt`
 - create file `secret_config.py` near `public_config`
 - run migrations - `python manage.py migrate`
-- create superuser - `python manage.py migrate`
+- create superuser - `python manage.py createsuperuser`
