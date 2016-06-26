@@ -189,3 +189,5 @@ JWT_AUTH = {
 
 APPEND_SLASH = True
 REMOVE_SLASH = False
+
+STATIC_ROOT = os.path.join(BASE_DIR, "/aeupdates/aeupdates/static/")

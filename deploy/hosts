@@ -1,2 +1,2 @@
 [production]
-root@37.139.30.9:22  ansible_host=37.139.30.9 ansible_user=root
+root@162.243.19.54  ansible_host=162.243.19.54 ansible_user=root
