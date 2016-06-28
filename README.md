@@ -20,6 +20,7 @@ ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
 
   1) Change HOST in `/apps/frontend/config/enviroment.js`:
     `ENV.APP.API_HOST = 'http://37.139.30.9:8080'`;
+    
   2) Fix static files for django: `python manage.py collectstatic`
 
 
