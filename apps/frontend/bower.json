@@ -9,5 +9,8 @@
     "fastclick": "1.0.6",
     "pace": "1.0.2",
     "aeupdates_css_js": "https://github.com/mehanig/html_for_aeupdates.git"
+  },
+  "devDependencies": {
+    "ember": "2.6.0"
   }
 }
