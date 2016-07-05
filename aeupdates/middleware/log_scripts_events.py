@@ -7,7 +7,7 @@ from aeupdates.utils.mongo_tools import get_mongo_db
 def is_scripts_api_path(path):
     all_products = Product.objects.all()
     for product in all_products:
-        if product.url.split('/')[1:] ==(path.split('/')[1:]):
+        if product.url.split('/')[-1] == (path.split('/')[-1]):
             return True
     return False
 
