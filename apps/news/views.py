@@ -12,7 +12,7 @@ class NewsViewSet(viewsets.ModelViewSet):
 
     def list(self, request):
         if request.user.is_authenticated():
-            queryset = News.objects.all()
+            queryset = News.objects.all().order_by('-version')
             serializer = NewsSerializer(queryset, many=True,
                                     context={'request': request})
             return Response(data=serializer.data)
