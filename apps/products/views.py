@@ -1,4 +1,3 @@
-import codecs
 import json
 
 from rest_framework import viewsets
