@@ -32,6 +32,27 @@ ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
 
 ###Local installation for Mac developers:
 
+### virtualenvwrapper Installation
+
+```bash
+pip install virtualenvwrapper
+```
+
+add the following lines to your `~/.bashrc` file:
+
+```bash
+export WORKON_HOME=$HOME/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+```
+
+then run
+
+```bash
+source ~/.bashrc
+mkvirtualenv -p /path/to/python3.4 aeupdates
+```
+
+
 - install psql: `brew install postgresql`
 - install mongodb: `brew install mongodb`
 - install requirements: `pip install -r requirements.txt`
