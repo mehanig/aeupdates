@@ -59,4 +59,5 @@ mkvirtualenv -p /path/to/python3.4 aeupdates
 - create file `secret_config.py` near `public_config`
 - run migrations - `python manage.py migrate`
 - create superuser - `python manage.py createsuperuser`
-- install ember if not installed `npm install ember-cli@2.4`
+- install ember if not installed `npm install -g ember-cli@2.4`
+- install bower if not installed `npm install -g bower`
