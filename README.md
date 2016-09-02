@@ -61,3 +61,11 @@ mkvirtualenv -p /path/to/python3.4 aeupdates
 - create superuser - `python manage.py createsuperuser`
 - install ember if not installed `npm install -g ember-cli@2.4`
 - install bower if not installed `npm install -g bower`
+
+## Build docker and push to Hub
+
+```bash
+cd aeupdates/depoloy
+docker build -t aeupdates django_docker
+```
+then push to hub - `https://docs.docker.com/engine/getstarted/step_six/`
