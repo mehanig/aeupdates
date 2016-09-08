@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_json_api.renderers import JSONRenderer
 
+from aeupdates.utils.common import version_compare_lt, version_to_sortkey
 from apps.products.models import Product
 from apps.news.models import News
 from apps.products.serializers import ProductSerializer
@@ -33,17 +34,31 @@ class SortedRelationsRenderer(JSONRenderer):
 class ProductViewSet(viewsets.ModelViewSet):
     """
     API endpoint that allows users to be viewed or edited.
+
+    Results are always SORTED by version DESC!
     """
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    renderer_classes = (SortedRelationsRenderer,)
+    # renderer_classes = (SortedRelationsRenderer,)
 
-    def retrieve(self, request, name=None):
+    def retrieve(self, request, *args, **kwargs):
+        name = kwargs.get('name', None)
+        version = kwargs.get('version', None)
         name = name.lower()
         if name.endswith('/'):
             name = name[:-1]
         try:
-            queryset = Product.objects.get(name=name)
+            if version:
+                queryset = Product.objects.get(name=name)
+                serializer = ProductSerializer(queryset, many=False,
+                                               context={'request': request})
+                data = serializer.data
+                # News is OrderedDict!
+                data['news'] = sorted([el for el in serializer.data['news']
+                                       if version_compare_lt(el['version'], version)], key=lambda x: version_to_sortkey(dict(x)['version']))
+                return Response(data)
+            else:
+                queryset = Product.objects.get(name=name)
         except Product.DoesNotExist:
             return Response("Not Exist",
                             status=status.HTTP_404_NOT_FOUND)
