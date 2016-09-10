@@ -65,8 +65,8 @@ module.exports = function(environment) {
     ENV.APP.API_HOST  = 'https://aeupdates.com';
     ENV.APP.API_NAMESPACE = 'api';
 
-    //COMMENT IF USING IN PRODUCTION
-    ENV.APP.API_HOST = 'http://37.139.30.9:8080';
+    // UNCOMMENT FOR LOCAL DEVELOPMENT IF PRODUCTION BUILD NEEDED
+    // ENV.APP.API_HOST = 'http://37.139.30.9:8080';
 }
   return ENV;
 };
