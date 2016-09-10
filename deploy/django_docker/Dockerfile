@@ -45,12 +45,14 @@ RUN npm install -g ember-cli@2.4
 RUN npm install -g bower
 
 # Invalidate cache and clone aeupdates repo and install python requirements
+# and Collect static
 RUN echo `date` > build_time
 ADD  build_time /.build_time
 RUN source /aeupdates_venv/bin/activate \
   && git clone https://github.com/mehanig/aeupdates \
   && cd aeupdates \
   && grep -v "^#" requirements.txt | xargs -n 1 -L 1 pip install
+  && python manage.py collectstatic --noinput
 
 # Create dir for ember project
 RUN mkdir -p /aeupdates/aeupdates/static/ember
