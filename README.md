@@ -75,3 +75,7 @@ cd aeupdates/depoloy
 docker build -t aeupdates django_docker
 ```
 then push to hub - `https://docs.docker.com/engine/getstarted/step_six/`
+
+## Problems with migrations?
+`python manage.py makemigrations corsheaders`
+`python manage.py migrate`
