@@ -28,6 +28,10 @@ def version_compare_lt(v1, v2):
         return False
 
 
+def version_compare_gt(v1, v2):
+    return not version_compare_lt(v1, v2) and not version_compare_eq(v1, v2)
+
+
 def version_to_sortkey(v):
     """
     Version limits:

@@ -1,11 +1,11 @@
 import json
-
+ 
 from rest_framework import viewsets
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework_json_api.renderers import JSONRenderer
 
-from aeupdates.utils.common import version_compare_lt, version_to_sortkey
+from aeupdates.utils.common import version_compare_gt, version_to_sortkey
 from apps.products.models import Product
 from apps.news.models import News
 from apps.products.serializers import ProductSerializer
@@ -55,7 +55,7 @@ class ProductViewSet(viewsets.ModelViewSet):
                 data = serializer.data
                 # News is OrderedDict!
                 data['news'] = sorted([el for el in serializer.data['news']
-                                       if version_compare_lt(el['version'], version)], key=lambda x: version_to_sortkey(dict(x)['version']))
+                                       if version_compare_gt(el['version'], version)], key=lambda x: version_to_sortkey(dict(x)['version']))
                 return Response(data)
             else:
                 queryset = Product.objects.get(name=name)
