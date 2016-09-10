@@ -81,5 +81,5 @@ then push to hub - `https://docs.docker.com/engine/getstarted/step_six/`
 `python manage.py migrate`
 
 ## Problems with database?
-1) login to postgre container
-2) `su postgres && postgres`
+1) `docker exec -it <image_id> bash`
+2) `psql -U postgres`
