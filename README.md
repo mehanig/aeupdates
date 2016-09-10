@@ -79,3 +79,7 @@ then push to hub - `https://docs.docker.com/engine/getstarted/step_six/`
 ## Problems with migrations?
 `python manage.py makemigrations corsheaders`
 `python manage.py migrate`
+
+## Problems with database?
+1) login to postgre container
+2) `su postgres && postgres`
