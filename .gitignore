@@ -19,6 +19,7 @@ apps/frontend/bower_components
 #static folder
 aeupdates/static/
 apps/frontend/dist/
+aeupdates/aeupdates/
 
 .DS_Store
 *.sqlite3
