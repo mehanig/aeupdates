@@ -13,7 +13,10 @@ aeupdates.com
 
 
 <h4>Deployment</h4>
-ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv
+
+ 1) stop old main contaier
+
+ 2) `ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv`
 
 
 <h4>Changes, needed before deployment in production</h4>
