@@ -18,10 +18,6 @@ aeupdates.com
 
  2) `ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv`
 
- 3) at this point no static files can be collected, manually collect them : `docker
- 
- 4) `source aeupdates_venv/bin/activate && cd aeupdates && python manage.py collectstatic` and answer yes 
-
 <h4>Changes, needed before deployment in production</h4>
 
   1) Change HOST in `/apps/frontend/config/enviroment.js`:
