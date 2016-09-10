@@ -14,7 +14,7 @@ aeupdates.com
 
 <h4>Deployment</h4>
 
- 1) stop old main contaier
+ 1) stop old main contaier `docker stop <container_id>`
 
  2) `ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv`
 
