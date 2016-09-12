@@ -136,14 +136,12 @@
 
         </div>
 
-
-
-
         <!-- SCROLL TOP BUTTON -->
         <!--===================================================-->
         <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
         <!--===================================================-->
-
-Available <products></products>:
-{{product-list products=model}}
-end
+{{#if session.isAuthenticated}}
+  {{product-list products=model}}
+{{else}}
+  Please login.
+{{/if}}

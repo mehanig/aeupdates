@@ -1,3 +1,5 @@
-{{#each news as |new|}}
-  {{new.version}} {{new.changes}}
-{{/each}}
+<div class="news-list__main">
+  {{#each news as |new|}}
+    <div>{{new.version}} {{new.changes}}</div>
+  {{/each}}
+</div>

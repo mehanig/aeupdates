@@ -4,14 +4,14 @@
 	        <a class="box-inline" href="/">
 		        <span class="brand-title">Aeupdates<span class="text-thin">  service for aescripts.com</span></span>
     			</a>
-          <div style="display: inline">
+          <div class="main_menu__block text-thin" style="display: inline">
               {{CurrentUser}}
-                <span>{{#link-to "users"}}Users{{/link-to}}</span>
-                <span>{{#link-to "manage"}}Manage{{/link-to}}</span>
+                <span class="main_menu__menu-element">{{#link-to "users"}}Users{{/link-to}}</span>
+                <span class="main_menu__menu-element">{{#link-to "manage"}}Manage{{/link-to}}</span>
                 {{#if session.isAuthenticated}}
-                    <span {{action 'logout'}}> Logout </span>
+                    <span class="main_menu__menu-element" {{action 'logout'}}> Logout </span>
                 {{else}}
-                    <span>{{#link-to "login"}}  Login  {{/link-to}}</span>
+                    <span class="main_menu__menu-element">{{#link-to "login"}}  Login  {{/link-to}}</span>
                 {{/if}}
             </div>
         </div>

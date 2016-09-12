@@ -1,6 +1,8 @@
-{{#each products as |product|}}
-  <br>{{product.name}}: {{product.url}}, {{product.version}}<br>
-  Versions log:
-  {{news-list news=product.news}}
-  <br>
-{{/each}}
+<div class="product-list__main">
+  {{#each products as |product|}}
+    <br><span class="product-list__bold-text">{{product.name}}</span>: {{product.url}}, version: {{product.version}}<br>
+    Versions log:
+    {{news-list news=product.news}}
+    <br>
+  {{/each}}
+</div>

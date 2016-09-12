@@ -33,7 +33,7 @@ module.exports = function(environment) {
    refreshAccessTokens: true,
    identificationField: 'username',
    timeFactor: 1000,
-   refreshLeeway: 300,
+   refreshLeeway: 3000,
    authorizationPrefix: 'Bearer ',
    authorizationHeaderName: 'Authorization',
    headers: {},

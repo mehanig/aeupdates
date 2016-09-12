@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+import datetime
+
 import os
 
 try:
@@ -185,6 +187,7 @@ REST_FRAMEWORK = {
 #JWT TOKENS SETTINGS
 JWT_AUTH = {
     'JWT_ALLOW_REFRESH': True,
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(seconds=3000),
 }
 
 APPEND_SLASH = True
