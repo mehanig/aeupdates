@@ -5,7 +5,7 @@ export default Ember.Controller.extend({
  
   actions: {
     register() {
-      const { username, password1, password2 } = this.getProperties('username', 'password1', 'password2');
+      const { username, email, password1, password2 } = this.getProperties('username', 'email', 'password1', 'password2');
         if (password1 !== password2) {
             this.set('error', "Passwords doesn't match.");
             return -1;
@@ -13,8 +13,13 @@ export default Ember.Controller.extend({
         this.store.createRecord('user',{
             username: username,
             password: password1,
-            email: username
-        }).save();
+            email: email
+        }).save().then((user)=> {
+            this.transitionToRoute('login', { queryParams: { feedback: 'success' }});
+          }
+        ).catch((reason)=> {
+            alert(reason);
+        });
     }
   }
 });

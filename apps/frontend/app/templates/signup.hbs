@@ -3,12 +3,21 @@
     <div class="cls-content-sm panel">
 	    <div class="panel-body">
 		    <p  class="pad-btm">Enter your credentials:</p>
-        <form {{action 'register' on='submit'}}><div class="form-group">
+        <form {{action 'register' on='submit'}}>
+                <div class="form-group">
                     <div class="input-group">
                         <div class="input-group-addon">
                             <i class="fa fa-user"></i>
                         </div>
-                        {{~input id='email' class="form-control" type="text" placeholder='Enter email' value=username ~}}
+                        {{~input id='username' class="form-control" type="text" placeholder='Enter username' value=username ~}}
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        {{~input id='email' class="form-control" type="text" placeholder='Enter email' value=email ~}}
                     </div>
                 </div>
                 <div class="form-group">
