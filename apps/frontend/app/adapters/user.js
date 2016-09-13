@@ -2,6 +2,21 @@ import DS from 'ember-data';
 import DataAdapterMixin from 'ember-simple-auth/mixins/data-adapter-mixin';
 import ENV from 'frontend/config/environment';
 
+//TODO: MAKE MODULAR!! REFACTOR THIS! (HOW?)
+var cookie_csrf_updater = function (xhr) {
+  var cookie = null;
+  var cookVal = null;
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    cookie = jQuery.trim(cookies[i]);
+    if (cookie.substring(0, "csrftoken".length + 1) == "csrftoken=") {
+      cookVal = decodeURIComponent(cookie.substring("csrftoken".length + 1));
+      break;
+    }
+  }
+  xhr.setRequestHeader("X-CSRFToken", cookVal);
+};
+
 export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
 
   //Overwrite request headers for one endpoint
@@ -18,6 +33,7 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin,{
         xhr.setRequestHeader('Accept', 'application/json');
         if (beforeSend) {
           beforeSend(xhr);
+          cookie_csrf_updater(xhr);
         }
       };
 

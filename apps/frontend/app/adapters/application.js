@@ -10,9 +10,9 @@ import ENV from 'frontend/config/environment';
 //  }
 //});
 
-export default DRFAdapter.extend({
-  addTrailingSlashes: false
-});
+// export default DRFAdapter.extend({
+//   addTrailingSlashes: false
+// });
 
 
 //export default DS.RESTAdapter.extend({
