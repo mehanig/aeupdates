@@ -86,4 +86,6 @@ then push to hub - `https://docs.docker.com/engine/getstarted/step_six/`
 docker rm $( docker ps -q -f status=exited)
 # Delete all dangling (unused) images
 docker rmi $( docker images -q -f dangling=true)
+# Delete all non-tagged images
+docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 ```
