@@ -79,3 +79,11 @@ then push to hub - `https://docs.docker.com/engine/getstarted/step_six/`
 ## Problems with database?
 1) `docker exec -it <image_id> bash`
 2) `psql -U postgres`
+
+## Problems with disk space?
+```bash
+# Delete all stopped containers
+docker rm $( docker ps -q -f status=exited)
+# Delete all dangling (unused) images
+docker rmi $( docker images -q -f dangling=true)
+```
