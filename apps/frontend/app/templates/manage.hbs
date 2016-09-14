@@ -1,147 +1,141 @@
 <!--NAVBAR-->
-        <div class="boxed">
+<div class="boxed">
 
-            <!--MAIN NAVIGATION-->
-            <!--===================================================-->
-            <nav id="mainnav-container" style="left: 0px; padding-top:0px">
-                <div id="mainnav">
+    <!--MAIN NAVIGATION-->
+    <!--===================================================-->
+    <nav id="mainnav-container" style="left: 0px; padding-top:0px">
+        <div id="mainnav">
 
-                    <!--Shortcut buttons-->
-                    <!--================================-->
-                    <div id="mainnav-shortcut">
-                        <ul class="list-unstyled">
-                            <li class="col-xs-4" data-content="Shortcut 1">
-                                <a class="shortcut-grid" href="#">
-                                    <i class="ti-gallery">X</i>
+            <!--Shortcut buttons-->
+            <!--================================-->
+            <div id="mainnav-shortcut">
+                <ul class="list-unstyled">
+                    <li class="col-xs-4" data-content="Shortcut 1">
+                        <a class="shortcut-grid" href="#">
+                            <i class="ti-gallery">X</i>
+                        </a>
+                    </li>
+                    <li class="col-xs-4" data-content="Shortcut 2">
+                        <a class="shortcut-grid" href="#">
+                            <i class="ti-headphone">Y</i>
+                        </a>
+                    </li>
+                    <li class="col-xs-4" data-content="Shortcut 3">
+                        <a class="shortcut-grid" href="#">
+                            <i class="ti-pin-alt">Z</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--================================-->
+            <!--End shortcut buttons-->
+
+
+            <!--Menu-->
+            <!--================================-->
+            <div id="mainnav-menu-wrap">
+                <div class="nano">
+                    <div class="nano-content">
+                        <ul id="mainnav-menu" class="list-group">
+
+                            <!--Category name-->
+                            <li class="list-header">Settings</li>
+
+                            <!--Menu list item-->
+                            <li class="active-link">
+                                <a href="#">
+                                    <i class="ti-game"></i>
+                                    <span class="menu-title">Scripts settings</span>
                                 </a>
                             </li>
-                            <li class="col-xs-4" data-content="Shortcut 2">
-                                <a class="shortcut-grid" href="#">
-                                    <i class="ti-headphone">Y</i>
+
+                            <!--Menu list item-->
+                            <li>
+                                <a href="#">
+                                    <i class="ti-alarm-clock"></i>
+                                    <span class="menu-title">Account settings</span>
                                 </a>
                             </li>
-                            <li class="col-xs-4" data-content="Shortcut 3">
-                                <a class="shortcut-grid" href="#">
-                                    <i class="ti-pin-alt">Z</i>
+
+                            <!--Menu list item-->
+                            <li>
+                                {{#link-to "manage.stats"}}
+                                    <i class="ti-calendar"></i>
+                                    <span class="menu-title">Statistics<span class="label label-success pull-right">New</span></span>
+                                {{/link-to}}
+                            </li>
+
+                            <!--Menu list item-->
+                            <li>
+                                <a href="#">
+                                    <i class="ti-cloud"></i>
+                                    <span class="menu-title">Notifications<span class="pull-right badge badge-purple">7</span></span>
                                 </a>
                             </li>
                         </ul>
-                    </div>
-                    <!--================================-->
-                    <!--End shortcut buttons-->
 
 
-                    <!--Menu-->
-                    <!--================================-->
-                    <div id="mainnav-menu-wrap">
-                        <div class="nano">
-                            <div class="nano-content">
-                                <ul id="mainnav-menu" class="list-group">
+                        <!--Widget-->
+                        <!--================================-->
+                        <div class="mainnav-widget">
 
-						            <!--Category name-->
-						            <li class="list-header">Settings</li>
+                            <!-- Show the button on collapsed navigation -->
+                            <div class="show-small">
+                                <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
+                                    <i class="fa fa-desktop"></i>
+                                </a>
+                            </div>
 
-						            <!--Menu list item-->
-						            <li class="active-link">
-						                <a href="#">
-						                    <i class="ti-game"></i>
-						                    <span class="menu-title">Scripts settings</span>
-						                </a>
-						            </li>
-
-						            <!--Menu list item-->
-						            <li>
-						                <a href="#">
-						                    <i class="ti-alarm-clock"></i>
-						                    <span class="menu-title">
-												Account settings
-											</span>
-						                </a>
-						            </li>
-
-						            <!--Menu list item-->
-						            <li>
-						                <a href="#">
-						                    <i class="ti-calendar"></i>
-						                    <span class="menu-title">
-												Statistics
-												<span class="label label-success pull-right">New</span>
-											</span>
-						                </a>
-						            </li>
-
-						            <!--Menu list item-->
-						            <li>
-						                <a href="#">
-						                    <i class="ti-cloud"></i>
-						                    <span class="menu-title">
-												Notifications
-												<span class="pull-right badge badge-purple">7</span>
-											</span>
-						                </a>
-						            </li>
+                            <!-- Hide the content on collapsed navigation -->
+                            <div id="demo-wg-server" class="hide-small mainnav-widget-content">
+                                <ul class="list-group">
+                                    <li class="list-header pad-no pad-ver">Current stats</li>
+                                    <li class="mar-btm">
+                                        <span class="label label-primary pull-right">15%</span>
+                                        <p>Bandwith used</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-primary" style="width: 15%;">
+                                                <span class="sr-only">15%</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="mar-btm">
+                                        <span class="label label-purple pull-right">75%</span>
+                                        <p>Total Bandwith</p>
+                                        <div class="progress progress-sm">
+                                            <div class="progress-bar progress-bar-purple" style="width: 75%;">
+                                                <span class="sr-only">75%</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="pad-ver"><a href="#" class="btn btn-success btn-bock">View Details</a>
+                                    </li>
                                 </ul>
-
-
-                                <!--Widget-->
-                                <!--================================-->
-                                <div class="mainnav-widget">
-
-                                    <!-- Show the button on collapsed navigation -->
-                                    <div class="show-small">
-                                        <a href="#" data-toggle="menu-widget" data-target="#demo-wg-server">
-                                            <i class="fa fa-desktop"></i>
-                                        </a>
-                                    </div>
-
-                                    <!-- Hide the content on collapsed navigation -->
-                                    <div id="demo-wg-server" class="hide-small mainnav-widget-content">
-                                        <ul class="list-group">
-                                            <li class="list-header pad-no pad-ver">Current stats</li>
-                                            <li class="mar-btm">
-                                                <span class="label label-primary pull-right">15%</span>
-                                                <p>Bandwith used</p>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-primary" style="width: 15%;">
-                                                        <span class="sr-only">15%</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="mar-btm">
-                                                <span class="label label-purple pull-right">75%</span>
-                                                <p>Total Bandwith</p>
-                                                <div class="progress progress-sm">
-                                                    <div class="progress-bar progress-bar-purple" style="width: 75%;">
-                                                        <span class="sr-only">75%</span>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="pad-ver"><a href="#" class="btn btn-success btn-bock">View Details</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <!--================================-->
-                                <!--End widget-->
-
                             </div>
                         </div>
-                    </div>
-                    <!--================================-->
-                    <!--End menu-->
+                        <!--================================-->
+                        <!--End widget-->
 
+                    </div>
                 </div>
-            </nav>
-            <!--===================================================-->
-            <!--END MAIN NAVIGATION-->
+            </div>
+            <!--================================-->
+            <!--End menu-->
 
         </div>
+    </nav>
+    <!--===================================================-->
+    <!--END MAIN NAVIGATION-->
 
-        <!-- SCROLL TOP BUTTON -->
-        <!--===================================================-->
-        <button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
-        <!--===================================================-->
+</div>
+
+<!-- SCROLL TOP BUTTON -->
+<!--===================================================-->
+<button id="scroll-top" class="btn"><i class="fa fa-chevron-up"></i></button>
+<!--===================================================-->
 {{#if session.isAuthenticated}}
-  {{product-list products=model}}
+    Available products:
+    {{product-list products=model}}
 {{else}}
-  Please login.
+    Please login.
 {{/if}}
