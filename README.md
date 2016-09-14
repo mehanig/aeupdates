@@ -89,3 +89,6 @@ docker rmi $( docker images -q -f dangling=true)
 # Delete all non-tagged images
 docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 ```
+
+### Problems with SSL ?
+`certbot certonly --standalone -d aeupdates.com`
