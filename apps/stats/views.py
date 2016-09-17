@@ -62,7 +62,7 @@ class StatsViewSet(viewsets.ViewSet):
         # We sort keys by lexicographical order!
         # That's why only European format is acceptable ( Year-Month-Day )
         sorted_keys = sorted(list(aggregated_by_day))
-        return [{key: aggregated_by_day[key]} for key in sorted_keys]
+        return [[key, aggregated_by_day[key]] for key in sorted_keys]
 
     def list(self, request):
         all = self.list_all_data_with_filters(filters_list=[is_user_id])

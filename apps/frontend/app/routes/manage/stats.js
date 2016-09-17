@@ -21,4 +21,7 @@ export default Ember.Route.extend({
   model() {
     return ajax('/api/stats');
   },
+  afterModel(model, transition) {
+    this.controllerFor('manage.stats').set('data', model.data);
+  }
 });
