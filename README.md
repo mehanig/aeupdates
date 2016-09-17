@@ -92,3 +92,14 @@ docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 
 ### Problems with SSL ?
 `certbot certonly --standalone -d aeupdates.com`
+
+### Problems with metrics agents?
+
+If you ever want to stop the Agent, run:
+```
+    sudo /etc/init.d/datadog-agent stop
+```
+And to run it again run:
+```
+    sudo /etc/init.d/datadog-agent start
+```
