@@ -31,5 +31,9 @@
 }
 
 .news-list__main {
-    margin: 10px;
+    margin: 30px;
+}
+
+.stats-data__title {
+  margin: 10px;
 }

@@ -6,6 +6,7 @@ from rest_framework_jwt.views import obtain_jwt_token
 from apps.subscriptions import views
 from apps.products.views import ProductViewSet
 from apps.news.views import NewsViewSet
+from apps.stats.views import StatsViewSet
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
 
@@ -15,6 +16,7 @@ router.register(r'users', views.UserViewSet, 'users')
 router.register(r'groups', views.GroupViewSet)
 router.register(r'products', ProductViewSet)
 router.register(r'news', NewsViewSet, 'news')
+router.register(r'stats', StatsViewSet, 'stats')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
