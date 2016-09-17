@@ -12,13 +12,13 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import datetime
-
+import raven
 import os
 
-try:
-    from secret_config import *
-except ImportError:
-    from public_config import *
+MY_PSQL_USER = "postgres"
+MY_PSQL_PASS = "mysecretpassword"
+MY_EMAIL_HOST_USER = "user@aeupdates.com"
+MY_EMAIL_HOST_PASSWORD = "passpasspasspass"
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -27,13 +27,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = MY_SECRET_KEY
+SECRET_KEY = '_mexqeci3@6kpf()czw^*^szel&-bgm-fr=dl@g8!3_y*$2!lg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if MY_CONFIG_IS_PRODUCTION:
-    DEBUG = False
-else:
-    DEBUG = True
+
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -95,33 +93,16 @@ WSGI_APPLICATION = 'aeupdates.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
+CORS_ORIGIN_ALLOW_ALL = True
 
-if MY_CONFIG_IS_PRODUCTION:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'aeupdates',
-            'USER': MY_PSQL_USER,
-            'PASSWORD': MY_PSQL_PASS,
-            'HOST': '172.17.0.1',
-            'PORT': '5432',
-        }
-    }
-else:
-    # HELLO!
-    CORS_ORIGIN_ALLOW_ALL = True
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    },
+}
 
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        },
-    }
-
-if MY_CONFIG_IS_PRODUCTION:
-    MONGO_HOST = '172.17.0.1'
-else:
-    MONGO_HOST = 'localhost'
+MONGO_HOST = 'localhost'
 MONGO_PORT = 27017
 MONGO_DB_NAME = 'aeupdates'
 
@@ -151,15 +132,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# REST_FRAMEWORK = {
-#     'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-#     'PAGE_SIZE': 10,
-#     'DEFAULT_AUTHENTICATION_CLASSES': (
-#         'rest_framework.authentication.BasicAuthentication',
-#         'rest_framework.authentication.SessionAuthentication',
-#     )
-# }
-
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
@@ -170,13 +142,6 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'rest_framework_json_api.exceptions.exception_handler',
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework_json_api.pagination.PageNumberPagination',
-# TODO: WHY?
-# Some problems caused by this settings, eg: can't post to /users - 415 error
-#    'DEFAULT_PARSER_CLASSES': (
-#        'rest_framework_json_api.parsers.JSONParser',
-#        'rest_framework.parsers.FormParser',
-#        'rest_framework.parsers.MultiPartParser'
-#    ),
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework_json_api.renderers.JSONRenderer',
         'rest_framework.renderers.BrowsableAPIRenderer',

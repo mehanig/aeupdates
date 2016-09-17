@@ -3,6 +3,7 @@ db.sqlite3
 frontend_deployment.md
 config.py
 secret_config.py
+production_settings.py
 __pycache__
 
 apps/frontend/node_modules

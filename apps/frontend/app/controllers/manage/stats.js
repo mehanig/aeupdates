@@ -12,6 +12,7 @@ export default Ember.Controller.extend({
     tooltipFontColor: "#444",
     tooltipEvents: [],
     tooltipCaretSize: 0,
+    bezierCurve : false,
     onAnimationComplete: function()
     {
         console.log(this);
