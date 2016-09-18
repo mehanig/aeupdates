@@ -17,7 +17,8 @@ fi
 
 if [[ $DEPLOYING_ENDPOINT == "staging" ]]
 then
-    cd /aeupdates/apps/frontend && ember build -o /aeupdates/aeupdates/static/ember --environment=testing
+    mv -f /aeupdates/apps/frontend/config/staging_environment.js /aeupdates/apps/frontend/config/environment.js
+    cd /aeupdates/apps/frontend && ember build -o /aeupdates/aeupdates/static/ember --environment=production
 fi
 
 /usr/local/nginx/sbin/nginx -c /aeupdates/nginx_conf/nginx.conf
