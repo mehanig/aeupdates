@@ -10,12 +10,12 @@ chmod -R 777 $UPLOADS_DIR/docker_nginx_folder
 # Build Ember Project
 
 # TODO: Simplify this logic.
-if [[ $1 == "production" ]]
+if [[ $DEPLOYING_ENDPOINT == "production" ]]
 then
     cd /aeupdates/apps/frontend && ember build -o /aeupdates/aeupdates/static/ember --environment=production
 fi
 
-if [[ $1 == "staging" ]]
+if [[ $DEPLOYING_ENDPOINT == "staging" ]]
 then
     cd /aeupdates/apps/frontend && ember build -o /aeupdates/aeupdates/static/ember --environment=testing
 fi

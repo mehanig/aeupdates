@@ -16,8 +16,8 @@ aeupdates.com
 
  1) stop old main contaier `docker stop <container_id>`
 
- 2) `ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv --extra-vars "delpoying_endpoint=production"` or
- `ansible-playbook -l staging -i deploy/hosts deploy/deploy.yml -vvvv --extra-vars "delpoying_endpoint=staging"`
+ 2) `ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv --extra-vars "DEPLOYING_ENDPOINT=production"` or
+ `ansible-playbook -l staging -i deploy/hosts deploy/deploy.yml -vvvv --extra-vars "DEPLOYING_ENDPOINT=staging"`
 
 <h4>Changes, needed before deployment in production</h4>
 
@@ -104,3 +104,9 @@ And to run it again run:
 ```
     sudo /etc/init.d/datadog-agent start
 ```
+
+### Problems with Nginx?
+
+look for processes `ps -aux | grep "nginx"`
+stop processes `/usr/sbin/nginx -s stop`
+read logs `cat /var/log/nginx/error.log`

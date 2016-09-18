@@ -73,4 +73,4 @@ RUN chmod +x /run.sh
 
 EXPOSE 8080 8084 443 5432 27017
 
-CMD /run.sh {{ delpoying_endpoint }}
+CMD /run.sh
