@@ -74,8 +74,8 @@ docker build -t aeupdates django_docker
 then push to hub - `https://docs.docker.com/engine/getstarted/step_six/`
 
 ## Problems with migrations?
-`python manage.py makemigrations corsheaders`
-`python manage.py migrate`
+`python manage.py --settings=aeupdates.production_settings makemigrations corsheaders`
+`python manage.py --settings=aeupdates.production_settings migrate`
 
 ## Problems with database?
 1) `docker exec -it <image_id> bash`

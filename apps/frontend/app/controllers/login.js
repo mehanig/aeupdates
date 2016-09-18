@@ -9,6 +9,9 @@ export default Ember.Controller.extend({
     if (this.get('feedback') === 'success') {
       return  "Success! Now login with your user!";
     }
+    if (this.get('feedback') === 'needlogin') {
+      return  "Oops! Please login.";
+    }
   }),
 
   actions: {

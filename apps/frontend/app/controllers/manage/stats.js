@@ -15,7 +15,6 @@ export default Ember.Controller.extend({
     bezierCurve : false,
     onAnimationComplete: function()
     {
-        console.log(this);
         this.showTooltip(this.datasets[0].points, true);
     }
   },

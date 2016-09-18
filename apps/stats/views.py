@@ -1,8 +1,13 @@
 from collections import Counter
 from datetime import datetime, timedelta
 
+from django.contrib.auth.models import User
+
 from rest_framework import viewsets
+from rest_framework.status import HTTP_401_UNAUTHORIZED
+from rest_framework.exceptions import ValidationError
 from rest_framework.response import Response
+from rest_framework_jwt.serializers import VerifyJSONWebTokenSerializer as Verifyer
 
 from aeupdates.utils.mongo_tools import get_mongo_db
 from bson.json_util import dumps
@@ -17,13 +22,46 @@ def encoder(coursor):
         resp.update({k: v})
     return resp
 
+# TODO: MAKE FOR EVERY PRODUCT
 USER_PRODUCT = 'gifgun'
+
 
 def is_user_id(el):
     return el['user_id'].isdigit()
 
 
-### TODO: Do not open connection to DB every time
+# TODO: SEND TO COMMON OR UTILS
+def user_still_exist(id):
+    return User.objects.filter(id=id).count() > 0
+
+
+def check_permissions_by_header(request, user_id=None):
+    result = {}
+    try:
+        bearer = request.META['HTTP_AUTHORIZATION'].split()[-1]
+        result = Verifyer().validate({'token': bearer})
+    except ValidationError:
+        return False
+    if result.get('user'):
+        if not user_id:
+            return user_still_exist(result['user'].id)
+        else:
+            return result['user'].id == int(user_id)
+    return False
+
+
+def is_authenticated(status):
+    def real_decorator(function):
+        def wrapper(*args, **kwargs):
+            request = args[1]
+            if not check_permissions_by_header(request=request, user_id=None):
+                return Response({"data": "Please login first"}, status=HTTP_401_UNAUTHORIZED)
+            return function(*args, **kwargs)
+        return wrapper
+    return real_decorator
+
+
+# TODO: Do not open connection to DB every time
 class StatsViewSet(viewsets.ViewSet):
 
     def list_all_data_with_filters(self, filters_list=None):
@@ -64,6 +102,7 @@ class StatsViewSet(viewsets.ViewSet):
         sorted_keys = sorted(list(aggregated_by_day))
         return [[key, aggregated_by_day[key]] for key in sorted_keys]
 
+    @is_authenticated("login/?feedback=needlogin")
     def list(self, request):
         all = self.list_all_data_with_filters(filters_list=[is_user_id])
         aggregated_by_user = self._data_logins_by_user(all)
