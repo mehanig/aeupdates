@@ -1,5 +1,6 @@
 - hosts: all
   tasks:
+    - include: 'tasks/COPY_PRODUCTION_CONFIG.yml'
 #    - include: 'tasks/install_extras.yml'
     - include: 'tasks/run_docker_django_container.yml'
 #    - include: 'tasks/run_docker_psql_container.yml'

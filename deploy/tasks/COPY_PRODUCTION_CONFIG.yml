@@ -1,0 +1,2 @@
+- name: ==== COPYING SUPER SECRET CONFIF TO PRODUCTION WITH ALL PRIVATE DATA ====
+  copy: src=../aeupdates/production_settings.py dest=/aeupdates/production_settings.py

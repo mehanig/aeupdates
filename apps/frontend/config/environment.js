@@ -51,14 +51,17 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
-    ENV.baseURL = '/';
-    ENV.locationType = 'none';
 
+    // ENV.baseURL = '/';
+    // ENV.locationType = 'none';
+    ENV.APP.API_HOST = 'http://37.139.30.9:8080';
+    ENV.APP.API_NAMESPACE = 'api';
+    //
     // keep test console output quieter
-    ENV.APP.LOG_ACTIVE_GENERATION = false;
-    ENV.APP.LOG_VIEW_LOOKUPS = false;
-
-    ENV.APP.rootElement = '#ember-testing';
+    // ENV.APP.LOG_ACTIVE_GENERATION = false;
+    // ENV.APP.LOG_VIEW_LOOKUPS = false;
+    //
+    // ENV.APP.rootElement = '#ember-testing';
   }
 
   if (environment === 'production') {

@@ -16,7 +16,8 @@ aeupdates.com
 
  1) stop old main contaier `docker stop <container_id>`
 
- 2) `ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv`
+ 2) `ansible-playbook -l production -i deploy/hosts deploy/deploy.yml -vvvv --extra-vars "delpoying_endpoint=production"` or
+ `ansible-playbook -l staging -i deploy/hosts deploy/deploy.yml -vvvv --extra-vars "delpoying_endpoint=staging"`
 
 <h4>Changes, needed before deployment in production</h4>
 

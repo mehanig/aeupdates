@@ -68,8 +68,9 @@ RUN cd /aeupdates/apps/frontend \
 RUN mkdir /aeupdates/docker_nginx_folder
 
 ADD docker_run.sh /run.sh
+ADD production_settings.py /aeupdates/aeupdates/production_settings.py
 RUN chmod +x /run.sh
 
 EXPOSE 8080 8084 443 5432 27017
 
-CMD /run.sh
+CMD /run.sh {{ delpoying_endpoint }}
