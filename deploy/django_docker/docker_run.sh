@@ -17,7 +17,8 @@ fi
 
 if [[ $DEPLOYING_ENDPOINT == "staging" ]]
 then
-    mv -f /aeupdates/apps/frontend/config/staging_environment.js /aeupdates/apps/frontend/config/environment.js
+    # cp is aliased to cp -i in centos? ok...
+    /bin/cp -rf /aeupdates/apps/frontend/config/staging_environment.js /aeupdates/apps/frontend/config/environment.js
     cd /aeupdates/apps/frontend && ember build -o /aeupdates/aeupdates/static/ember --environment=production
 fi
 
