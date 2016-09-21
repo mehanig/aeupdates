@@ -4,10 +4,16 @@ from apps.products.models import Product
 from aeupdates.utils.mongo_tools import get_mongo_db
 
 
+LOGGING_HEADERS_STATS_API = "/status/"
+
+
+# TODO : request.path = "/status/gifgun/?include=news"
+# TODO : is it safe to get 2nd element after split? Probably yes.
 def is_scripts_api_path(path):
     all_products = Product.objects.all()
     for product in all_products:
-        if product.url.split('/')[-1] == (path.split('/')[-1]):
+        # Split and remove empty lines
+        if product.url.split('/')[-1] == (list(filter(None, path.split('/')))[1]):
             return True
     return False
 
