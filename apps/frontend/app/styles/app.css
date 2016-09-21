@@ -46,3 +46,7 @@
 .stats-data__graph_users_count_overall {
   margin: 10px;
 }
+
+.stats-data__graph_users_count_unique {
+  margin: 10px;
+}

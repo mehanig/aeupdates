@@ -114,11 +114,24 @@ class StatsViewSet(viewsets.ViewSet):
         sorted_keys = sorted(list(aggregated_by_day))
         return [[key, aggregated_by_day[key]] for key in sorted_keys]
 
+    def _data_unuque_logins_by_day(self, data, backtrack_days=30):
+        data = self.filter_older_than(data, backtrack_days)
+        bins = [set() for _ in range(backtrack_days+1)]
+        days_names = list(reversed([str(x)+"_ago" for x in range(backtrack_days+1)]))
+        for record in data:
+            _date = datetime.fromtimestamp(record['timestamp'] // 1000)
+            days_ago = (datetime.today() - _date).days
+            bins[days_ago].add(record['user_id'])
+        results = list(reversed(list(map(lambda x: len(x), bins))))
+        return [[days_names[x], results[x]] for x in range(backtrack_days+1)]
+
     @is_authenticated("login/?feedback=needlogin")
     def list(self, request):
         all = self.list_all_data_with_filters(filters_list=[is_user_id])
         aggregated_by_user = self._data_logins_by_user(all)
         aggregated_by_day = self._data_logins_by_day(all)
+        aggregated_unique_by_day = self._data_unuque_logins_by_day(all)
         return Response({'aggregated_by_user': aggregated_by_user,
                          'aggregated_by_day': aggregated_by_day,
+                         'aggregated_unique_by_day': aggregated_unique_by_day,
                          })

@@ -8,3 +8,8 @@
     <div class="stats-data__chart_title">User logins by user, aggregated by previous 180 days.</div>
   {{ember-chart type="Bar"  width=900 height=500 data=all_data.aggregated_by_user options=aggregated_by_user_CHARTOPTIONS}}
 </div>
+
+<div class="stats-data__graph_users_count_unique">
+    <div class="stats-data__chart_title">Unique User logins, aggregated by previous 30 days.</div>
+  {{ember-chart type="Bar"  width=900 height=500 data=all_data.aggregated_unique_by_day options=aggregated_unique_by_day_CHARTOPTIONS}}
+</div>
