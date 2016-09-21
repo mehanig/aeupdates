@@ -37,8 +37,7 @@ if settings.DEBUG:
 urlpatterns += patterns(
     'django.contrib.staticfiles.views',
     (r'^password/', include('password_reset.urls')),
-    url(r'^(?:index.html)?$', serve, MainPageView.as_view()),
-    url(r'^(?P<path>(?:js|css|img)/.*)$', serve),
+    url(r'^(?:index.html)?$', MainPageView.as_view()),
     url(r'^manage/(?P<path>.*)$', MainPageView.as_view()),
     url(r'^login/(?P<path>.*)$', MainPageView.as_view()),
     url(r'^signup/(?P<path>.*)$', MainPageView.as_view()),
@@ -48,4 +47,5 @@ urlpatterns += patterns(
     url(r'^status/(?P<name>.*)/(?P<version>.*)$', ProductViewSet.as_view({'get': 'retrieve'})),
     # url(r'^token/$', obtain_auth_token)
     # url(r'^rest-auth/', include('rest_auth.urls'))
+    url(r'^(?P<path>(?:js|css|img)/.*)$', serve),
 )

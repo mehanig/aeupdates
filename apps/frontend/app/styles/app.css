@@ -37,3 +37,12 @@
 .stats-data__title {
   margin: 10px;
 }
+
+
+.stats-data__graph_users_by_day {
+  margin: 10px;
+}
+
+.stats-data__graph_users_count_overall {
+  margin: 10px;
+}

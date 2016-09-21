@@ -1,3 +1,4 @@
+import operator
 from collections import Counter
 from datetime import datetime, timedelta
 
@@ -62,6 +63,7 @@ def is_authenticated(status):
 
 
 # TODO: Do not open connection to DB every time
+# TODO: ADJUSTABLE USER PRODUCT
 class StatsViewSet(viewsets.ViewSet):
 
     def list_all_data_with_filters(self, filters_list=None):
@@ -79,22 +81,32 @@ class StatsViewSet(viewsets.ViewSet):
                 result.append({str(c.get('_id')): encoder(c)})
         return result
 
-    def _data_logins_by_user(self, data):
-        aggregated_by_user = Counter()
+    def filter_older_than(self, data, days):
+        filtered = []
         for record in data:
-            # Only one element here
+            # Record is one mongodb object: {'object_id': {real data}}
             for _, v in record.items():
-                aggregated_by_user.update([v['user_id']])
-        return aggregated_by_user
-
-    def _data_logins_by_day(self, data, backtrack_days=180):
-        aggregated_by_day = Counter()
-        for record in data:
-            for _, v in record.items():
-                oldest_day = datetime.today() - timedelta(days=backtrack_days)
+                oldest_day = datetime.today() - timedelta(days=days)
                 _date = datetime.fromtimestamp(v['timestamp'] // 1000)
                 if _date > oldest_day:
-                    aggregated_by_day.update(['{year}-{month:02d}-{day:02d}'.format(year=_date.year,
+                    filtered.append(v)
+        return filtered
+
+    def _data_logins_by_user(self, data, backtrack_days=180):
+        data = self.filter_older_than(data, backtrack_days)
+        aggregated_by_user = Counter()
+        # Data is list of dicts
+        for record in data:
+            aggregated_by_user.update([record['user_id']])
+        return sorted(aggregated_by_user.items(), key=operator.itemgetter(1), reverse=True)
+
+    def _data_logins_by_day(self, data, backtrack_days=180):
+        data = self.filter_older_than(data, backtrack_days)
+        aggregated_by_day = Counter()
+
+        for record in data:
+            _date = datetime.fromtimestamp(record['timestamp'] // 1000)
+            aggregated_by_day.update(['{year}-{month:02d}-{day:02d}'.format(year=_date.year,
                                                                                     month=_date.month,
                                                                                     day=_date.day)])
         # We sort keys by lexicographical order!

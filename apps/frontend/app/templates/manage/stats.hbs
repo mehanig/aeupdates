@@ -1,4 +1,10 @@
 <div class="stats-data__title">Stats Data</div>
-<div class="stats-data__graph_users">
-  {{ember-chart type="Line"  width=900 height=500 data=days_data options=days_data_CHARTOPTIONS}}
+<div class="stats-data__graph_users_by_day">
+    <div class="stats-data__chart_title">Sum of all requests to news page by day.</div>
+  {{ember-chart type="Line"  width=900 height=500 data=all_data.aggregated_by_day options=aggregated_by_day_CHARTOPTIONS}}
+</div>
+
+<div class="stats-data__graph_users_count_overall">
+    <div class="stats-data__chart_title">User logins by user, aggregated by previous 180 days.</div>
+  {{ember-chart type="Bar"  width=900 height=500 data=all_data.aggregated_by_user options=aggregated_by_user_CHARTOPTIONS}}
 </div>
