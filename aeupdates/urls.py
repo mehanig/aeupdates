@@ -9,7 +9,7 @@ from apps.news.views import NewsViewSet
 from apps.stats.views import StatsViewSet
 from django.contrib import admin
 from django.contrib.staticfiles.views import serve
-
+from aeupdates.views import MainPageView
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet, 'users')
@@ -37,12 +37,12 @@ if settings.DEBUG:
 urlpatterns += patterns(
     'django.contrib.staticfiles.views',
     (r'^password/', include('password_reset.urls')),
-    url(r'^(?:index.html)?$', serve, kwargs={'path': 'ember/index.html'}),
+    url(r'^(?:index.html)?$', serve, MainPageView.as_view()),
     url(r'^(?P<path>(?:js|css|img)/.*)$', serve),
-    url(r'^manage/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
-    url(r'^login/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
-    url(r'^signup/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
-    url(r'^users/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
+    url(r'^manage/(?P<path>.*)$', MainPageView.as_view()),
+    url(r'^login/(?P<path>.*)$', MainPageView.as_view()),
+    url(r'^signup/(?P<path>.*)$', MainPageView.as_view()),
+    url(r'^users/(?P<path>.*)$', MainPageView.as_view()),
     url(r'^token/$', views.ObtainJSONWebTokenPlainJSON.as_view()),
     url(r'^token-refresh/', views.RefreshJSONWebTokenPlainJSON.as_view()),
     url(r'^status/(?P<name>.*)/(?P<version>.*)$', ProductViewSet.as_view({'get': 'retrieve'})),
