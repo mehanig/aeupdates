@@ -12,9 +12,12 @@ LOGGING_HEADERS_STATS_API = "/status/"
 def is_scripts_api_path(path):
     all_products = Product.objects.all()
     for product in all_products:
-        # Split and remove empty lines
-        if product.url.split('/')[-1] == (list(filter(None, path.split('/')))[1]):
-            return True
+        # Split and remove empty lines, pass all Exceptions
+        try:
+            if product.url.split('/')[-1] == (list(filter(None, path.split('/')))[1]):
+                return True
+        except Exception as e:
+            pass
     return False
 
 
