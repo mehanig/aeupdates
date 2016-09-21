@@ -34,18 +34,15 @@ if settings.DEBUG:
       url(r'^static/(?P<path>.*)$', serve),
     ]
 
-# TODO: (MY) /aeupdates/aeupdates/urls.py:26: RemovedInDjango110Warning: Support for string view arguments to url()
-# is deprecated and will be removed in Django 1.10 (got serve). Pass the callable instead.
-# url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'ember/index.html'}),
-
 urlpatterns += patterns(
     'django.contrib.staticfiles.views',
     (r'^password/', include('password_reset.urls')),
-    url(r'^(?:index.html)?$', 'serve', kwargs={'path': 'ember/index.html'}),
-    url(r'^(?P<path>(?:js|css|img)/.*)$', 'serve'),
-    url(r'^manage/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
-    url(r'^login/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
-    url(r'^signup/(?P<path>.*)$', 'serve', kwargs={'path': 'ember/index.html'}),
+    url(r'^(?:index.html)?$', serve, kwargs={'path': 'ember/index.html'}),
+    url(r'^(?P<path>(?:js|css|img)/.*)$', serve),
+    url(r'^manage/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
+    url(r'^login/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
+    url(r'^signup/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
+    url(r'^users/(?P<path>.*)$', serve, kwargs={'path': 'ember/index.html'}),
     url(r'^token/$', views.ObtainJSONWebTokenPlainJSON.as_view()),
     url(r'^token-refresh/', views.RefreshJSONWebTokenPlainJSON.as_view()),
     url(r'^status/(?P<name>.*)/(?P<version>.*)$', ProductViewSet.as_view({'get': 'retrieve'})),
