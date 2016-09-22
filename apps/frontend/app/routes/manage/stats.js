@@ -32,7 +32,7 @@ export default Ember.Route.extend({
     this.get('session').authorize('authorizer:token', (headerName, headerValue) => {
       bearer = headerValue;
     });
-    return ajax('/api/stats', {}, bearer);
+    return ajax('/api/stats/', {}, bearer);
   },
   afterModel(model, transition) {
     this.controllerFor('manage.stats').set('data', model.data);
