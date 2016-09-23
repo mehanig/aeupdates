@@ -208,3 +208,13 @@ p {
 .stats-data__graph_users_count_unique {
   margin: 10px;
 }
+
+.manage__grid {
+  margin-top: 30px;
+  font-size: 3em;
+}
+
+.manage__grid_cell {
+  padding: 40px 60px 40px 60px;
+  display: inline-block;
+}

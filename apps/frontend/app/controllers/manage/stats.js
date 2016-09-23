@@ -6,44 +6,53 @@ export default Ember.Controller.extend({
   data: false,
   aggregated_by_day_CHARTOPTIONS: {
     animation: true,
-    responsive : false,
+    animationEasing: "easeInOutCubic",
+    animationSteps: 90,
+    responsive : true,
     tooltipTemplate: "<%= value %>",
     tooltipFillColor: "rgba(0,0,0,0)",
-    tooltipFontColor: "#444",
-    tooltipEvents: [],
-    tooltipCaretSize: 0,
+    tooltipFontColor: "#999",
+    tooltipYPadding: 6,
     bezierCurve : false,
+    scaleFontFamily: "'Lato', 'Helvetica', 'Arial', sans-serif",
+    tooltipEvents: ["mousemove",],
     onAnimationComplete: function()
     {
-        this.showTooltip(this.datasets[0].points, true);
+        // this.showTooltip(this.datasets[0].points, true);
     }
   },
   aggregated_by_user_CHARTOPTIONS: {
     animation: true,
-    responsive : false,
+    animationEasing: "easeInOutCubic",
+    animationSteps: 90,
+    responsive : true,
     tooltipTemplate: "<%= value %>",
     tooltipFillColor: "rgba(0,0,0,0)",
-    tooltipFontColor: "#444",
-    tooltipEvents: [],
+    tooltipFontColor: "#999",
     tooltipCaretSize: 0,
     bezierCurve : false,
+    scaleFontFamily: "'Lato', 'Helvetica', 'Arial', sans-serif",
+    tooltipEvents: ["mousemove",],
     onAnimationComplete: function()
     {
-        this.showTooltip(this.datasets[0].bars, true);
+        // this.showTooltip(this.datasets[0].bars, true);
     }
   },
   aggregated_unique_by_day_CHARTOPTIONS: {
     animation: true,
-    responsive : false,
+    animationEasing: "easeInOutCubic",
+    animationSteps: 90,
+    responsive : true,
     tooltipTemplate: "<%= value %>",
     tooltipFillColor: "rgba(0,0,0,0)",
-    tooltipFontColor: "#444",
-    tooltipEvents: [],
+    tooltipFontColor: "#999",
     tooltipCaretSize: 0,
     bezierCurve : false,
+    scaleFontFamily: "'Lato', 'Helvetica', 'Arial', sans-serif",
+    tooltipEvents: ["mousemove",],
     onAnimationComplete: function()
     {
-        this.showTooltip(this.datasets[0].bars, true);
+        // this.showTooltip(this.datasets[0].bars, true);
     }
   },
 
