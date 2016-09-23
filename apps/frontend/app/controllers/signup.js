@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
             this.transitionToRoute('login', { queryParams: { feedback: 'success' }});
           }
         ).catch((reason)=> {
-            alert(reason);
+            alert(reason.errors.reason);
         });
     }
   }

@@ -1,5 +1,7 @@
 from django.contrib.auth.models import User, Group
+from django.conf import settings
 from rest_framework.response import Response
+from rest_framework.status import HTTP_403_FORBIDDEN
 from rest_framework import viewsets
 from apps.subscriptions.serializers import UserSerializer, GroupSerializer
 
@@ -49,7 +51,10 @@ class UserViewSet(viewsets.ModelViewSet):
 
     def create(self, request):
         serializer = UserSerializer(data=request.data['data']['attributes'])
-        if serializer.is_valid():
+        if settings.REGISTRATION_CLOSED:
+            content = {'reason': 'Nothing to see here'}
+            return Response(content, status=HTTP_403_FORBIDDEN)
+        if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)

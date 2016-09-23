@@ -1,36 +1,33 @@
 {{#if feedback}}
-  <h3>{{feedbackHumanable}}</h3>
+  <h3 class="login__feedback_header">{{feedbackHumanable}}</h3>
 {{else}}
-  <h2>Login into your account</h2>
+  <h2 class="login__feedback_header">Login into your account</h2>
 {{/if}}
-<div class="cls-content">
-    <div class="cls-content-sm panel">
-	    <div class="panel-body">
-		    <p class="pad-btm">Enter your credentials:</p>
-            <form {{action 'authenticate' on='submit'}}><div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-user"></i>
+<div class="login__main_div">
+    <div class="login__main_content">
+	    <div class="login__main_content-body">
+		    <p class="login__main_content-par">Enter your credentials:</p>
+            <form {{action 'authenticate' on='submit'}}><div class="login__main_content_form-group">
+                    <div class="login__main_content_input-group">
+                        <div class="login__main_content_input-group-addon">
+                            <i class=""></i>
                         </div>
-                        {{~input id='identification' class="form-control" type="text" placeholder='Enter username or email' value=identification ~}}
+                        {{~input id='identification' class="login__main_content-form-control" type="text" placeholder='Username' value=identification ~}}
                     </div>
-                </div><div class="form-group">
-                    <div class="input-group">
-                        <div class="input-group-addon">
-                            <i class="fa fa-user"></i>
+                </div><div class="login__main_content_form-group">
+                    <div class="login__main_content_input-group">
+                        <div class="login__main_content_input-group-addon">
+                            <i class=""></i>
                         </div>
-                        {{~input id='password' class="form-control" type="password" placeholder='Enter password' value=password~}}
+                        {{~input id='password' class="login__main_content-form-control" type="password" placeholder='Password' value=password~}}
                     </div>
                 </div>
                 <div class="row">
 							      <div class="col-xs-8 text-left checkbox">
-								        <label class="form-checkbox form-icon form-text">
-            								<input type="checkbox"> Remember me
-        								</label>
     				    		</div>
     						    <div class="col-xs-4">
     								    <div class="form-group text-right">
-            								<button class="btn btn-success text-uppercase" type="submit">Sign In</button>
+            								<button class="btn btn-success text-uppercase login__main_content-button-submit" type="submit">Sign In</button>
            							</div>
     							  </div>
     						</div>
@@ -38,10 +35,10 @@
                     <p>
                         {{error}}
                     </p>
-                    <input type="button" class='btn btn-primary btn-lg btn-block' onclick="location.href='/password/recover/';" value="Reset password" />
+                    <input type="button" class='login__main_content-large-button text-uppercase' onclick="location.href='/password/recover/';" value="Reset password" />
                 {{~/if}}
-                <div class="mar-btm"><em>- don't have an account? -</em></div>
-                {{#link-to 'signup' class='btn btn-primary btn-lg btn-block' tagName='button'}} Register {{/link-to}}
+                <div class="login__main_content-par"><em>- don't have an account? -</em></div>
+                {{#link-to 'signup' class='login__main_content-large-button text-uppercase' tagName='button'}} Register {{/link-to}}
             </form>
         </div>
     </div>
