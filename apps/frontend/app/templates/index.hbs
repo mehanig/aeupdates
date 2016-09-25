@@ -1,0 +1,32 @@
+<div class="main__landing_block row">
+    <div class="main__landing_photo_block col-xs-12">
+        Convenient analytics and notifications for your Adobe scripts.
+        <br>Free.
+    </div>
+    <div class="main__landing_description col-xs-12">
+         <h2>How it works?</h2>
+         <p>
+         1. Register as script provider<br>
+         2. Include updater.js to your jsx build with your credentials.<br>
+         3. Watch users run it.<br>
+         4. Notify customers with new updates.<br>
+        </p>
+    </div>
+    <div class="main__landing_notify  col-xs-12">
+        <p>We are still in beta.</p>
+        <p>Subscribe to get notified.</p>
+        <br><br>
+        <div class="box">
+             <div class="row center-xs">
+                 <div class="col-xs-6">
+                    <form {{action 'subscribeToNews' on='submit'}} class="main__landing-form">
+                        {{~input id='email' class="form-control main__landing_subscribe-input-field" type="text" placeholder='Enter email to get notified' value=email ~}}
+                         <div class="main__landing_subscribe-button">
+                             <input class="btn btn-success text-uppercase padded_by_11px" type="submit" value="Subscribe"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
