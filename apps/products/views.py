@@ -65,4 +65,3 @@ class ProductViewSet(viewsets.ModelViewSet):
         serializer = ProductSerializer(queryset, many=False,
                        context={'request': request})
         return Response(serializer.data)
-

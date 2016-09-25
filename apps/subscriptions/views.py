@@ -11,6 +11,8 @@ from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 from rest_framework_jwt.serializers import VerifyJSONWebTokenSerializer as Verifyer
 
+from aeupdates.utils.mongo_tools import get_mongo_db
+
 
 class ObtainJSONWebTokenPlainJSON(ObtainJSONWebToken):
     parser_classes = (JSONParser, )
@@ -77,6 +79,16 @@ class AeupdatesViewSet(viewsets.ModelViewSet):
         else:
             return "None"
 
+
+class SubscribeToNewsBeta(viewsets.ViewSet):
+    def create(self, request):
+        try:
+            db = get_mongo_db()
+            result = db.all_emails.insert_one({'email': request.data['email']})
+            return Response({'data': 'Thank you!'})
+        except Exception as e:
+            content = {'reason': 'Nothing to see here'}
+            return Response(content, status=HTTP_403_FORBIDDEN)
 
 class GroupViewSet(viewsets.ModelViewSet):
     """

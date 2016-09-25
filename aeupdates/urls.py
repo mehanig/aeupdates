@@ -17,6 +17,7 @@ router.register(r'groups', views.GroupViewSet)
 router.register(r'products', ProductViewSet)
 router.register(r'news', NewsViewSet, 'news')
 router.register(r'stats', StatsViewSet, 'stats')
+router.register(r'subscribe', views.SubscribeToNewsBeta, 'subscribe')
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
