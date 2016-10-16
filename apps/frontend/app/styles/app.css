@@ -232,7 +232,7 @@ p {
   max-width:100%;
   background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) ), url('images/analytics.jpeg') no-repeat center;
   background-size: cover;
-  height: 400px;
+  min-height: 400px;
   display: flex;
   justify-content:center;
   align-content:center;
@@ -268,7 +268,7 @@ p {
   background: linear-gradient( rgba(90, 90, 200, 0.3),rgba(30, 30, 200, 0.5)), url('images/betabg.jpeg') no-repeat center;
   background-size: cover;
   max-width:100%;
-  height: 400px;
+  min-height: 400px;
   display: flex;
   justify-content:center;
   align-content:center;
