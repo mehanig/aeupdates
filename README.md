@@ -92,7 +92,9 @@ docker rmi $(docker images | grep "^<none>" | awk "{print $3}")
 ```
 
 ### Problems with SSL ?
-`certbot certonly --standalone -d aeupdates.com`
+ - `/usr/sbin/nginx -s stop`
+ - `certbot certonly --standalone -d aeupdates.com`
+ - `service nginx start`
 
 ### Problems with metrics agents?
 
