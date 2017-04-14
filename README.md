@@ -10,7 +10,7 @@ aeupdates.com
     docker build -t aeupdates .
     docker run -it -p 8080:8080 -p 8084:8084 -t aeupdates
     ...
-
+    ...
 
 <h4>Deployment</h4>
 
