@@ -112,3 +112,14 @@ And to run it again run:
 look for processes `ps -aux | grep "nginx"`
 stop processes `/usr/sbin/nginx -s stop`
 read logs `cat /var/log/nginx/error.log`
+
+
+### Get mongo stats ?
+`docker exec -i -t <id> /bin/bash`
+`mongodump --out /mongodb_dumped_db`
+`tar -zcvf mongodbdumped.tar.gz /mongodb_dumped_db/`
+exit from container
+`docker cp <id>:/mongodbdumped.tar.gz mongodbdumped.tar.gz`
+exit from ssh session
+`scp user@<ip>:~/mongodbdumped.tar.gz ~/mongodumped.tar.gz`
+`cd ~ && tar -zxvf mongodumped.tar.gz && mongorestore mongodb_dumped_db`
