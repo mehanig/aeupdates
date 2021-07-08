@@ -1,16 +1,15 @@
 # aeupdates
 aeupdates.com
 
+## DEV
 
-<h2>Centos Deployment:</h2>
-<h4> something </h4>
-    
-<h4> dockers </h4>
-    ....
-    docker build -t aeupdates .
-    docker run -it -p 8080:8080 -p 8084:8084 -t aeupdates
-    ...
-    ...
+<h2>Local docker</h2>
+- create file `production_settings.py` in `/aeupdates`, similar as `settings.py`
+```
+cd deploy/django_docker
+docker build -t aeupdates -f deploy/django_docker/Dockerfile
+docker run -it -p 8080:8080 -p 8084:8084 -t aeupdates
+```
 
 <h4>Deployment</h4>
 

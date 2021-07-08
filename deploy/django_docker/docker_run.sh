@@ -3,9 +3,6 @@
 UPLOADS_DIR=/aeupdates
 
 set -e
-# Create folders required by nginx upload module
-mkdir -p $UPLOADS_DIR/docker_nginx_folder/upload/tmp/{0..9}
-chmod -R 777 $UPLOADS_DIR/docker_nginx_folder
 
 # Build Ember Project
 
