@@ -1,7 +1,5 @@
 #!/bin/bash
 
-UPLOADS_DIR=/aeupdates
-
 set -e
 
 # Build Ember Project
